@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Slider playerHealthBar;
     [SerializeField] private float playerMaxHealth = 10f;
+    [SerializeField] private GameObject UICanvas;
 
     private float playerHealth;
 
@@ -58,5 +59,15 @@ public class GameManager : MonoBehaviour
 
         playerHealth = playerMaxHealth;
         UpdateHealthbar(playerHealth);
+    }
+
+    public void HideUIElements()
+    {
+        UICanvas.SetActive(false);
+    }
+
+    public void ShowUIElements()
+    {
+        UICanvas.SetActive(true);
     }
 }

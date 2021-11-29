@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class SwitchMusicTrigger : MonoBehaviour
 {
-    [SerializeField] AudioClip musicToSwitchTo;
+    [SerializeField] private AudioClip musicToSwitchTo;
+
+    private AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = GameObject.FindWithTag("Audio Manager").GetComponent<AudioManager>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && musicToSwitchTo != null)
         {
-            AudioManager.instance.SwitchMusic(musicToSwitchTo);
+            audioManager.SwitchMusic(musicToSwitchTo);
         }
     }
 }

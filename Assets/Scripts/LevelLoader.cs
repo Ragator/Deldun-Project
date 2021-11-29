@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    public static LevelLoader instance;
+    //public static LevelLoader instance;
 
     [SerializeField] private Animator crossfade;
     [SerializeField] private float crossfadeDuration = 1f;
@@ -13,7 +13,7 @@ public class LevelLoader : MonoBehaviour
 
     private string targetDoor;
 
-    private void Awake()
+/*    private void Awake()
     {
         if (instance == null)
         {
@@ -24,7 +24,7 @@ public class LevelLoader : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+    }*/
 
     private void Start()
     {
@@ -37,10 +37,9 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadLevel(targetScene));
     }
 
-    // TEMPORARY
-    public void MenuLoadGame(string sceneName)
+    public void LoadTargetScene(string targetScene)
     {
-        StartCoroutine(LoadLevel(sceneName));
+        StartCoroutine(LoadLevel(targetScene));
     }
 
     IEnumerator LoadLevel(string targetScene)
@@ -67,5 +66,11 @@ public class LevelLoader : MonoBehaviour
         Transform playerTransform = GameObject.FindWithTag("Player").transform;
 
         playerTransform.position = entryDoor.GetComponent<Teleport>().PlayerSpawnPosition;
+    }
+
+    // TEMPORARY
+    public void ResetLastDoor()
+    {
+        targetDoor = null;
     }
 }

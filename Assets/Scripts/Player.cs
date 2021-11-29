@@ -20,11 +20,15 @@ public class Player : MonoBehaviour
     //private BoxCollider2D boxCollider;
     private Vector2 moveDelta;
 
+    private GameManager gameManager;
+
     private void Start()
     {
         //boxCollider = GetComponent<BoxCollider2D>();
         myRigidBody = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+
+        gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
     }
     private void Update()
     {
@@ -57,7 +61,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        GameManager.instance.PlayerTakeDamage(damage);
+        gameManager.PlayerTakeDamage(damage);
 
         audioSource.PlayOneShot(hitSound, 0.5f);
 
