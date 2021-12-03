@@ -19,9 +19,9 @@ public class NewGameButton : MonoBehaviour
         newGameButton = GetComponent<Button>();
         newGameButton.onClick.AddListener(StartNewGame);
 
-        gameManager = GameObject.FindWithTag("Game Manager").GetComponent<GameManager>();
-        audioManager = GameObject.FindWithTag("Audio Manager").GetComponent<AudioManager>();
-        levelLoader = GameObject.FindWithTag("Level Loader").GetComponent<LevelLoader>();
+        gameManager = GameObject.FindWithTag(DeldunProject.Tags.gameManager).GetComponent<GameManager>();
+        audioManager = GameObject.FindWithTag(DeldunProject.Tags.audioManager).GetComponent<AudioManager>();
+        levelLoader = GameObject.FindWithTag(DeldunProject.Tags.levelLoader).GetComponent<LevelLoader>();
     }
 
     private void StartNewGame()

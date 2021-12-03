@@ -875,6 +875,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7136012457986264350, guid: b09438eca7e2e1245b8f4a4fbf4c8671, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ba24595959728be45a2a807421a3f719, type: 3}
     - target: {fileID: 7294497017595318861, guid: b09438eca7e2e1245b8f4a4fbf4c8671, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1423,9 +1427,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstSceneMusic: {fileID: 8300000, guid: 80372d81d499b5a4aae50539ab60a759, type: 3}
   firstSceneName: Outside
-  gameManager: {fileID: 0}
-  audioManager: {fileID: 0}
-  levelLoader: {fileID: 0}
 --- !u!1 &1163365828
 GameObject:
   m_ObjectHideFlags: 0

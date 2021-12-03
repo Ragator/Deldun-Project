@@ -22,7 +22,9 @@ public class Enemy : MonoBehaviour
 
     private Path path;
     private int currentWaypoint = 0;
+#pragma warning disable IDE0052 // Remove unread private members
     private bool reachedEndOfPath = false;
+#pragma warning restore IDE0052 // Remove unread private members
 
     private Seeker seeker;
     private GameObject player;
@@ -36,7 +38,7 @@ public class Enemy : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         seeker = GetComponent<Seeker>();
 
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag(DeldunProject.Tags.player);
         //playerRigidbody = player.GetComponent<Rigidbody2D>();
 
         InvokeRepeating("UpdatePath", 0f, 0.2f);
@@ -118,7 +120,7 @@ public class Enemy : MonoBehaviour
             myRigidbody.AddForce(knockbackDirection * knockbackStrength);
         }*/
 
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag(DeldunProject.Tags.player))
         {
             collision.gameObject.GetComponent<Player>().TakeDamage(damage);
 

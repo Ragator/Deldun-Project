@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crossfade: {fileID: 2319995334650130007}
   crossfadeDuration: 1
+  doorParentName: /Doorways/
 --- !u!1 &2319995336588896777
 GameObject:
   m_ObjectHideFlags: 0

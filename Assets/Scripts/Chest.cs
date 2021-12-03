@@ -43,7 +43,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag(DeldunProject.Tags.player))
         {
             ShowButtonPrompt();
             canInteract = true;
@@ -52,7 +52,7 @@ public class Chest : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag(DeldunProject.Tags.player))
         {
             HideButtonPrompt();
             canInteract = false;

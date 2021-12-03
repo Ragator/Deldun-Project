@@ -13,8 +13,17 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float knockbackToPlayerStrength = 500f;
     [SerializeField] private float rotationSpeed = 300f;
 
+    [SerializeField] private AudioClip hitSound;
+
+    private AudioSource myAudioSource;
+
     private float rotation;
     private Vector3 mouseWorldPosition;
+
+    private void Start()
+    {
+        myAudioSource = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -51,7 +60,7 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag(DeldunProject.Tags.enemy))
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(weaponDamage);
 
@@ -60,6 +69,8 @@ public class Weapon : MonoBehaviour
             player.gameObject.GetComponent<Rigidbody2D>().AddForce((player.position - collision.transform.position).normalized * knockbackToPlayerStrength);
 
             //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(collision.transform.position), rotationSpeed);
+
+            myAudioSource.PlayOneShot(hitSound, 0.3f);
         }
     }
 }

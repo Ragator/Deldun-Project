@@ -5,26 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    //public static LevelLoader instance;
-
     [SerializeField] private Animator crossfade;
     [SerializeField] private float crossfadeDuration = 1f;
     [SerializeField] private string doorParentName = "/Doorways/";
 
     private string targetDoor;
-
-/*    private void Awake()
-    {
-        if (instance == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }*/
+    private bool transitionHappening = false;
 
     private void Start()
     {
@@ -33,12 +19,18 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadTargetScene(string targetScene, string targetDoorName)
     {
+        if (transitionHappening) return;
+
+        transitionHappening = true;
         targetDoor = targetDoorName;
         StartCoroutine(LoadLevel(targetScene));
     }
 
     public void LoadTargetScene(string targetScene)
     {
+        if (transitionHappening) return;
+
+        transitionHappening = true;
         StartCoroutine(LoadLevel(targetScene));
     }
 
@@ -53,6 +45,8 @@ public class LevelLoader : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        transitionHappening = false;
+
         if (targetDoor != null)
         {
             MovePlayer(targetDoor);
@@ -63,7 +57,7 @@ public class LevelLoader : MonoBehaviour
     {
         GameObject entryDoor = GameObject.Find(doorParentName + targetDoor);
 
-        Transform playerTransform = GameObject.FindWithTag("Player").transform;
+        Transform playerTransform = GameObject.FindWithTag(DeldunProject.Tags.player).transform;
 
         playerTransform.position = entryDoor.GetComponent<Teleport>().PlayerSpawnPosition;
     }

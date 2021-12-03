@@ -19,12 +19,12 @@ public class Teleport : MonoBehaviour
 
     private void Start()
     {
-        levelLoader = GameObject.FindWithTag("Level Loader").GetComponent<LevelLoader>();
+        levelLoader = GameObject.FindWithTag(DeldunProject.Tags.levelLoader).GetComponent<LevelLoader>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag(DeldunProject.Tags.player))
         {
             GetComponent<BoxCollider2D>().enabled = false;
             levelLoader.LoadTargetScene(targetScene, targetDoorName);

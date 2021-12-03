@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Slider playerHealthBar;
     [SerializeField] private float playerMaxHealth = 10f;
     [SerializeField] private GameObject UICanvas;
+    [SerializeField] private Texture2D customCursor;
 
     private float playerHealth;
 
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
         playerHealthBar.maxValue = playerMaxHealth;
 
         UpdateHealthbar(playerHealth);
+
+        Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
     }
 
     public void PlayerTakeDamage(float damage)

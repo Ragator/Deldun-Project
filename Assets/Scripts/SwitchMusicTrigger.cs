@@ -10,12 +10,12 @@ public class SwitchMusicTrigger : MonoBehaviour
 
     private void Start()
     {
-        audioManager = GameObject.FindWithTag("Audio Manager").GetComponent<AudioManager>();
+        audioManager = GameObject.FindWithTag(DeldunProject.Tags.audioManager).GetComponent<AudioManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && musicToSwitchTo != null)
+        if (collision.CompareTag(DeldunProject.Tags.player) && musicToSwitchTo != null)
         {
             audioManager.SwitchMusic(musicToSwitchTo);
         }
