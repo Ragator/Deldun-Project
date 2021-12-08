@@ -7,13 +7,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 711843259, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 973869720, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 973869720, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3469695311216964099, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
-      propertyPath: knockbackStrength
-      value: 500
+      propertyPath: speed
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3469695311216964123, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
       propertyPath: m_Name
       value: Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469695311216964123, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3469695311216964124, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
       propertyPath: m_RootOrder
@@ -58,6 +74,22 @@ PrefabInstance:
     - target: {fileID: 3469695311216964124, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469695311216964126, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5031953
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469695311216964126, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
+      propertyPath: m_Size.y
+      value: 0.74832577
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469695311216964126, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.00040876865
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469695311216964126, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.2503133
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}

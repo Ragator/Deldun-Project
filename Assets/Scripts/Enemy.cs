@@ -15,8 +15,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float maxHealth = 10f;
     [SerializeField] private Slider healthBar;
     [SerializeField] private float damage = 2f;
+    [SerializeField] private int currencyValue = 5;
 
     [SerializeField] private GameObject canvas;
+    [SerializeField] private Animator myAnimator;
 
     private float currentHealth;
 
@@ -28,7 +30,6 @@ public class Enemy : MonoBehaviour
 
     private Seeker seeker;
     private GameObject player;
-    //private Rigidbody2D playerRigidbody;
     private Rigidbody2D myRigidbody;
 
 
@@ -55,6 +56,7 @@ public class Enemy : MonoBehaviour
         {
             if (seeker.IsDone())
             {
+                myAnimator.SetBool("isChasing", true);
                 seeker.StartPath(myRigidbody.position, player.transform.position, OnPathComplete);
             }
         }
@@ -66,6 +68,8 @@ public class Enemy : MonoBehaviour
         {
             path = p;
             currentWaypoint = 0;
+            if (Vector2.Distance(player.transform.position, transform.position) > seekingDistance)
+                myAnimator.SetBool("isChasing", false);
         }
     }
 
@@ -155,6 +159,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        player.GetComponent<Player>().GainCurrency(currencyValue);
         Destroy(gameObject);
     }
 

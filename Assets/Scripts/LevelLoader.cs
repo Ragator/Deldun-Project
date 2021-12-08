@@ -10,7 +10,8 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] private string doorParentName = "/Doorways/";
 
     private string targetDoor;
-    private bool transitionHappening = false;
+    //private bool transitionHappening = false;
+    public bool TransitionHappening { get; private set; } = false;
 
     private void Start()
     {
@@ -19,22 +20,22 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadTargetScene(string targetScene, string targetDoorName)
     {
-        if (transitionHappening) return;
+        if (TransitionHappening) return;
 
-        transitionHappening = true;
+        TransitionHappening = true;
         targetDoor = targetDoorName;
         StartCoroutine(LoadLevel(targetScene));
     }
 
     public void LoadTargetScene(string targetScene)
     {
-        if (transitionHappening) return;
+        if (TransitionHappening) return;
 
-        transitionHappening = true;
+        TransitionHappening = true;
         StartCoroutine(LoadLevel(targetScene));
     }
 
-    IEnumerator LoadLevel(string targetScene)
+    private IEnumerator LoadLevel(string targetScene)
     {
         crossfade.SetTrigger("Start");
 
@@ -45,7 +46,9 @@ public class LevelLoader : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        transitionHappening = false;
+        TransitionHappening = false;
+
+        crossfade.SetTrigger("Start");
 
         if (targetDoor != null)
         {

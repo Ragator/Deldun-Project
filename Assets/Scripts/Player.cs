@@ -77,4 +77,14 @@ public class Player : MonoBehaviour
         playerSprite.enabled = true;
         isInvincible = false;
     }
+
+    public void GainCurrency(int amount)
+    {
+        gameManager.GainCurrency(amount);
+    }
+
+    public void LoseCurrency(int amount)
+    {
+        gameManager.LoseCurrency(amount);
+    }
 }

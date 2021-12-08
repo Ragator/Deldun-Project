@@ -9,15 +9,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1712316421941462686, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.034
+      value: -0.033
       objectReference: {fileID: 0}
     - target: {fileID: 1712316421941462686, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.465
+      value: -0.216
+      objectReference: {fileID: 0}
+    - target: {fileID: 3310604232499531627, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
+      propertyPath: m_Controller
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3469695311216964099, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
       propertyPath: speed
-      value: 800
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3469695311216964099, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
       propertyPath: damage
@@ -89,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: -332661014414710779, guid: 6fad8817d7c87024caa8ed037c5cb542, type: 3}
     - target: {fileID: 3469695311216964126, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
       propertyPath: m_Size.x
-      value: 0.45072305
+      value: 0.43850264
       objectReference: {fileID: 0}
     - target: {fileID: 3469695311216964126, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
       propertyPath: m_Size.y
@@ -97,11 +101,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3469695311216964126, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
       propertyPath: m_Offset.x
-      value: -0.033792555
+      value: -0.03074868
       objectReference: {fileID: 0}
     - target: {fileID: 3469695311216964126, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
       propertyPath: m_Offset.y
-      value: -0.124040425
+      value: 0.125
       objectReference: {fileID: 0}
+    - target: {fileID: 8359843607574257608, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
+      propertyPath: m_Name
+      value: Small Zombie Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871688130627106605, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -332661014414710779, guid: 6fad8817d7c87024caa8ed037c5cb542, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}

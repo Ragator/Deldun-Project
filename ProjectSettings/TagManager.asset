@@ -10,6 +10,7 @@ TagManager:
   - Game Manager
   - Level Loader
   - Audio Manager
+  - PostProcess
   layers:
   - Default
   - TransparentFX

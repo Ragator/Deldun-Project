@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Weapon : MonoBehaviour
 {
@@ -12,16 +13,23 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float weaponKnockbackStrength = 500f;
     [SerializeField] private float knockbackToPlayerStrength = 500f;
     [SerializeField] private float rotationSpeed = 300f;
+    [SerializeField] private float slashSpeed = 1500f;
 
     [SerializeField] private AudioClip hitSound;
 
     private AudioSource myAudioSource;
 
     private float rotation;
+    
     private Vector3 mouseWorldPosition;
+
+    public bool canRotate = true;
+
+    private CapsuleCollider2D damageCollider;
 
     private void Start()
     {
+        damageCollider = GetComponent<CapsuleCollider2D>();
         myAudioSource = GetComponent<AudioSource>();
     }
 
@@ -51,11 +59,41 @@ public class Weapon : MonoBehaviour
             playerSprite.localScale = new Vector2(-1, 1);
             swordSprite.localScale = new Vector2(-1, 1);
         }
+
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && canRotate)
+        {
+            canRotate = false;
+        }
+
+        if (Input.GetMouseButtonUp(0) && !canRotate)
+        {
+            StartCoroutine(Slash(rotation));
+        }
     }
 
     private void FixedUpdate()
     {
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, rotation - 90), rotationSpeed * Time.fixedDeltaTime);
+        if (canRotate)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, rotation - 90), rotationSpeed * Time.fixedDeltaTime);
+        }
+    }
+
+    private IEnumerator Slash(float slashRotation)
+    {
+        damageCollider.enabled = true;
+
+        while (Mathf.Abs(Quaternion.Angle(transform.rotation, Quaternion.Euler(0, 0, slashRotation - 90))) > 1f)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, slashRotation - 90), slashSpeed * Time.fixedDeltaTime);
+
+            //Debug.Log("Rotation at : " + transform.rotation + " , trying to reach : " + Quaternion.Euler(0, 0, slashRotation - 90));
+
+            yield return new WaitForFixedUpdate();
+        }
+
+        canRotate = true;
+        damageCollider.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

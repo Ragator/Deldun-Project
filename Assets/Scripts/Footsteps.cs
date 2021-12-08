@@ -15,7 +15,9 @@ public class Footsteps : MonoBehaviour
         clouds.Stop();
     }
 
+#pragma warning disable IDE0051 // Remove unused private members
     private void Step()
+#pragma warning restore IDE0051 // Remove unused private members
     {
         myAudioSource.PlayOneShot(footstepSound, volume);
 

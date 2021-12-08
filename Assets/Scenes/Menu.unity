@@ -1425,7 +1425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7752bb9cca9c7448b4c9d47e725d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSceneMusic: {fileID: 8300000, guid: 80372d81d499b5a4aae50539ab60a759, type: 3}
+  firstSceneMusic: {fileID: 8300000, guid: 3e352576706a4d741a3cb1b39fb32793, type: 3}
   firstSceneName: Outside
 --- !u!1 &1163365828
 GameObject:
@@ -1927,9 +1927,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pre Alpha 0.3
-
-'
+  m_text: Pre Alpha 0.4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c933ec4569b86a646b67561a3ff75726, type: 2}
   m_sharedMaterial: {fileID: 6886314133065985806, guid: c933ec4569b86a646b67561a3ff75726, type: 2}

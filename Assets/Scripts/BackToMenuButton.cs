@@ -22,6 +22,8 @@ public class BackToMenuButton : MonoBehaviour
 
     private void ExitToMenu()
     {
+        if (levelLoader.TransitionHappening) return;
+
         gameManager.HideUIElements();
         audioManager.SwitchMusic(menuMusic);
         levelLoader.ResetLastDoor();
