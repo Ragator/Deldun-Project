@@ -44,22 +44,12 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: 6fad8817d7c87024caa8ed037c5cb542, type: 3}
-    - {fileID: 2800000, guid: 7ebc7d4a89361d049a720fc1ecb80145, type: 3}
-    - {fileID: 2800000, guid: fe18ba9cb062c1d479a3ee77b348066d, type: 3}
-    - {fileID: 2800000, guid: 422363d58f7433644bf55e4a8a5a4ab0, type: 3}
-    - {fileID: 2800000, guid: 298f6810732aaab4ca89878157868139, type: 3}
-    totalSpriteSurfaceArea: 26296
+    totalSpriteSurfaceArea: 24440
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 1700766857389022521, guid: 298f6810732aaab4ca89878157868139, type: 3}
-  - {fileID: 2215745761463138581, guid: 298f6810732aaab4ca89878157868139, type: 3}
-  - {fileID: -1273090703572220712, guid: 298f6810732aaab4ca89878157868139, type: 3}
-  - {fileID: 2457880308640484884, guid: 298f6810732aaab4ca89878157868139, type: 3}
-  - {fileID: -5115618752126089108, guid: 422363d58f7433644bf55e4a8a5a4ab0, type: 3}
-  - {fileID: -5050664382621690000, guid: 422363d58f7433644bf55e4a8a5a4ab0, type: 3}
   - {fileID: -8850067798136526029, guid: 6fad8817d7c87024caa8ed037c5cb542, type: 3}
   - {fileID: 2165151032917842225, guid: 6fad8817d7c87024caa8ed037c5cb542, type: 3}
   - {fileID: 8664507672882963953, guid: 6fad8817d7c87024caa8ed037c5cb542, type: 3}
@@ -138,15 +128,7 @@ SpriteAtlas:
   - {fileID: -7566632554201152900, guid: 6fad8817d7c87024caa8ed037c5cb542, type: 3}
   - {fileID: 8970763576347242229, guid: 6fad8817d7c87024caa8ed037c5cb542, type: 3}
   - {fileID: -3511164465282743847, guid: 6fad8817d7c87024caa8ed037c5cb542, type: 3}
-  - {fileID: 21300000, guid: 7ebc7d4a89361d049a720fc1ecb80145, type: 3}
-  - {fileID: 21300000, guid: fe18ba9cb062c1d479a3ee77b348066d, type: 3}
   m_PackedSpriteNamesToIndex:
-  - player_walk_1
-  - player_walk_0
-  - player_walk_3
-  - player_walk_2
-  - player_idle_0
-  - player_idle_1
   - Zombie
   - GoUp
   - GoRight
@@ -225,8 +207,6 @@ SpriteAtlas:
   - Stairs_4
   - Stairs_5
   - GoLeft
-  - E
-  - bar
   m_RenderDataMap: {}
   m_Tag: Atlas
   m_IsVariant: 0

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6599e10259a9e1438fc852fb39d76c7, type: 3}
+  m_Name: Health Potion
+  m_EditorClassIdentifier: 
+  name: Health Potion
+  icon: {fileID: 8574161683599010399, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  description: A vial filled with a red liquid.

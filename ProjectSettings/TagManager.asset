@@ -11,6 +11,7 @@ TagManager:
   - Level Loader
   - Audio Manager
   - PostProcess
+  - Inventory
   layers:
   - Default
   - TransparentFX

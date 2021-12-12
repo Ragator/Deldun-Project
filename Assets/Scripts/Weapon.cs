@@ -2,29 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private Transform player;
     [SerializeField] private Transform playerSprite;
     [SerializeField] private Transform swordSprite;
-
     [SerializeField] private float weaponDamage = 2f;
     [SerializeField] private float weaponKnockbackStrength = 500f;
     [SerializeField] private float knockbackToPlayerStrength = 500f;
     [SerializeField] private float rotationSpeed = 300f;
     [SerializeField] private float slashSpeed = 1500f;
-
     [SerializeField] private AudioClip hitSound;
+    [SerializeField] private Image radialSprite;
+    [SerializeField] private AudioClip slashSound;
 
     private AudioSource myAudioSource;
-
     private float rotation;
-    
     private Vector3 mouseWorldPosition;
-
     public bool canRotate = true;
-
     private CapsuleCollider2D damageCollider;
 
     private void Start()
@@ -63,11 +60,20 @@ public class Weapon : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && canRotate)
         {
             canRotate = false;
+            
+            // TO DO
+            radialSprite.enabled = true;
+        }
+
+        if (radialSprite.enabled)
+        {
+            FillSlashRadialSlider();
         }
 
         if (Input.GetMouseButtonUp(0) && !canRotate)
         {
             StartCoroutine(Slash(rotation));
+            radialSprite.enabled = false;
         }
     }
 
@@ -79,20 +85,37 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    private void FillSlashRadialSlider()
+    {
+        Vector2 swordDirection = (transform.position + transform.up * 10) - transform.position;
+        Vector2 mouseDirection = mouseWorldPosition - transform.position;
+        float angle = Vector2.SignedAngle(swordDirection, mouseDirection) / 360f;
+
+        radialSprite.fillClockwise = angle < 0;
+        radialSprite.fillAmount = Mathf.Abs(angle);
+    }
+
     private IEnumerator Slash(float slashRotation)
     {
         damageCollider.enabled = true;
+        myAudioSource.PlayOneShot(slashSound, 0.05f);
+        float timeout = 0;
 
         while (Mathf.Abs(Quaternion.Angle(transform.rotation, Quaternion.Euler(0, 0, slashRotation - 90))) > 1f)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, slashRotation - 90), slashSpeed * Time.fixedDeltaTime);
 
-            //Debug.Log("Rotation at : " + transform.rotation + " , trying to reach : " + Quaternion.Euler(0, 0, slashRotation - 90));
+            timeout += Time.fixedDeltaTime;
 
+            if (timeout > 0.5f)
+            {
+                break;
+            }
             yield return new WaitForFixedUpdate();
         }
 
         canRotate = true;
+
         damageCollider.enabled = false;
     }
 
@@ -108,7 +131,7 @@ public class Weapon : MonoBehaviour
 
             //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(collision.transform.position), rotationSpeed);
 
-            myAudioSource.PlayOneShot(hitSound, 0.3f);
+            myAudioSource.PlayOneShot(hitSound, 0.4f);
         }
     }
 }
