@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BackToMenuButton : MonoBehaviour
+public class BackToMenuButton : UIButton
 {
     [SerializeField] private AudioClip menuMusic;
     [SerializeField] private string menuSceneName;
@@ -11,19 +11,13 @@ public class BackToMenuButton : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private LevelLoader levelLoader;
+    [SerializeField] private MenuManager menuManager;
 
-    private Button backToMenuButton;
-
-    private void Start()
-    {
-        backToMenuButton = GetComponent<Button>();
-        backToMenuButton.onClick.AddListener(ExitToMenu);
-    }
-
-    private void ExitToMenu()
+    protected override void ButtonPressed()
     {
         if (levelLoader.TransitionHappening) return;
 
+        menuManager.CloseAllMenus();
         gameManager.HideUIElements();
         audioManager.SwitchMusic(menuMusic);
         levelLoader.ResetLastDoor();
