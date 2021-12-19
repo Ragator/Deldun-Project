@@ -16,6 +16,21 @@ namespace DeldunProject
         public const string gameManager = "Game Manager";
         public const string levelLoader = "Level Loader";
         public const string audioManager = "Audio Manager";
+        public const string inventory = "Inventory";
+    }
+
+    public enum ItemCategory
+    {
+        consumable,
+        key,
+        helmet,
+        chest,
+        meleeWeapon,
+        rangeWeapon,
+        magicWeapon,
+        earring,
+        amulet,
+        ring
     }
 }
 

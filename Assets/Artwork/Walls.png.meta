@@ -1,7 +1,13 @@
 fileFormatVersion: 2
 guid: b3475c110b04c1746b3e4b4a81e2ace5
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3218248262026354849
+    second: closedDoor
+  - first:
+      213: 2551541108661590903
+    second: openDoor
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,7 +119,49 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: closedDoor
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 208
+        width: 34
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f96e6b14c7653d0800000000000000
+      internalID: -3218248262026354849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: openDoor
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 208
+        width: 34
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77b9493ae15e86320800000000000000
+      internalID: 2551541108661590903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

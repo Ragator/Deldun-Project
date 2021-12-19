@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float selfKnockbackStrength = 400f;
     [SerializeField] private float maxHealth = 10f;
     [SerializeField] private Slider healthBar;
-    [SerializeField] private float damage = 2f;
+    [SerializeField] private int damage = 10;
     [SerializeField] private int currencyValue = 5;
 
     [SerializeField] private GameObject canvas;

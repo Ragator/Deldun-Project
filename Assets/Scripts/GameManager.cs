@@ -10,13 +10,24 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [SerializeField] private Slider playerHealthBar;
-    [SerializeField] private float playerMaxHealth = 10f;
+    [SerializeField] private int playerMaxHealth = 500;
+
+    [SerializeField] private Slider playerSanityBar;
+    [SerializeField] private int playerMaxSanity = 200;
+
+    [SerializeField] private Slider playerStaminaBar;
+    [SerializeField] private int playerMaxStamina = 100;
+    [SerializeField] private float staminaRegenerationRate = 1f;
+
     [SerializeField] private GameObject UICanvas;
     [SerializeField] private Texture2D customCursor;
     [SerializeField] private TextMeshProUGUI currencyCounter;
     [SerializeField] private LevelLoader myLevelLoader;
 
-    private float playerHealth;
+    private int playerHealth;
+    private int playerSanity;
+    private int playerStamina;
+    private bool staminaRegenerationActive = true;
     private int currency;
 
     private void Awake()
@@ -37,16 +48,24 @@ public class GameManager : MonoBehaviour
         playerHealth = playerMaxHealth;
         playerHealthBar.maxValue = playerMaxHealth;
 
-        UpdateHealthbar(playerHealth);
+        playerSanity = playerMaxSanity;
+        playerSanityBar.maxValue = playerMaxSanity;
+
+        playerStamina = playerMaxStamina;
+        playerStaminaBar.maxValue = playerMaxStamina;
+
+
+        UpdateHealthbar();
+        UpdateStaminaBar();
 
         Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
     }
 
-    public void PlayerTakeDamage(float damage)
+    public void PlayerTakeDamage(int damage)
     {
         playerHealth -= damage;
 
-        UpdateHealthbar(playerHealth);
+        UpdateHealthbar();
 
         if (playerHealth <= 0)
         {
@@ -55,9 +74,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void UpdateHealthbar(float value)
+    private void UpdateHealthbar()
     {
-        playerHealthBar.value = value;
+        playerHealthBar.value = playerHealth;
     }
 
     private void PlayerDeath()
@@ -65,7 +84,7 @@ public class GameManager : MonoBehaviour
         myLevelLoader.LoadTargetScene(SceneManager.GetActiveScene().name);
 
         playerHealth = playerMaxHealth;
-        UpdateHealthbar(playerHealth);
+        UpdateHealthbar();
     }
 
     public void HideUIElements()
@@ -102,5 +121,52 @@ public class GameManager : MonoBehaviour
     private void UpdateCurrencyCounter()
     {
         currencyCounter.SetText("{0}", currency);
+    }
+
+    public bool CanAffordStaminaCost(int staminaCost)
+    {
+        return (playerStamina - staminaCost) >= 0;
+    }
+
+    public void ReduceStamina(int staminaCost)
+    {
+        playerStamina -= staminaCost;
+        UpdateStaminaBar();
+    }
+
+    public void StopStaminaRegeneration()
+    {
+        staminaRegenerationActive = false;
+        StopCoroutine("RegenerateStamina");
+    }
+
+    public void StartStaminaRegeneration()
+    {
+        if (!staminaRegenerationActive)
+        {
+            StartCoroutine("RegenerateStamina");
+        }
+    }
+
+    private void UpdateStaminaBar()
+    {
+        playerStaminaBar.value = playerStamina;
+    }
+
+    private IEnumerator RegenerateStamina()
+    {
+        staminaRegenerationActive = true;
+
+        yield return new WaitForSeconds(1f);
+
+        while (playerStamina < playerMaxStamina)
+        {
+            playerStamina++;
+            UpdateStaminaBar();
+
+            yield return new WaitForSeconds(0.03f / staminaRegenerationRate);
+        }
+
+        staminaRegenerationActive = false;
     }
 }

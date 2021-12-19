@@ -62,6 +62,18 @@ TextureImporter:
   - first:
       213: -6667716475043361764
     second: sprite_sheet2_19
+  - first:
+      213: 4950449540763887015
+    second: empty
+  - first:
+      213: 7111182709157555893
+    second: sprite_sheet2_21
+  - first:
+      213: -2393667503641123379
+    second: bed
+  - first:
+      213: -8603399289394761274
+    second: bedSheets
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -590,6 +602,90 @@ TextureImporter:
       bones: []
       spriteID: c1c450a61338773a0800000000000000
       internalID: -6667716475043361764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: empty
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 509
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a52ab3f0a783b440800000000000000
+      internalID: 4950449540763887015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_sheet2_21
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 496
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be6c305ffeffa260800000000000000
+      internalID: 7111182709157555893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bed
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 475
+        width: 32
+        height: 37
+      alignment: 9
+      pivot: {x: 0.5, y: 0.2}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc5231f661cf7ced0800000000000000
+      internalID: -2393667503641123379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedSheets
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 496
+        width: 32
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c1f6c6dde59a9880800000000000000
+      internalID: -8603399289394761274
       vertices: []
       indices: 
       edges: []

@@ -2,70 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : MonoBehaviour
+public class Chest : Interactable
 {
-    private bool canInteract = false;
-    private bool canOpen = true;
-    private SpriteRenderer mySpriteRenderer;
     [SerializeField] private Sprite openedSprite;
-    [SerializeField] private Sprite closedSprite;
-    [SerializeField] private GameObject buttonPrompt;
+    [SerializeField] private Item myitem;
+    [SerializeField] private AudioClip openingSound;
+
+    private SpriteRenderer mySpriteRenderer;
+    private Inventory myInventory;
+    private AudioSource myAudioSource;
 
     private void Start()
     {
+        myInventory = GameObject.FindWithTag(DeldunProject.Tags.inventory).GetComponent<Inventory>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myAudioSource = GetComponent<AudioSource>();
     }
 
-    private void Update()
+    protected override void Interact()
     {
-        if (canInteract)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Open();
-            }
-        }
-    }
+        // Open the chest
+        mySpriteRenderer.sprite = openedSprite;
+        myAudioSource.PlayOneShot(openingSound, 0.4f);
+        canInteract = false;
+        HideButtonPrompt();
 
-    public void Open()
-    {
-        if (canOpen)
-        {
-            canOpen = false;
-            mySpriteRenderer.sprite = openedSprite;
-        }
-        else
-        {
-            canOpen = true;
-            mySpriteRenderer.sprite = closedSprite;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag(DeldunProject.Tags.player))
-        {
-            ShowButtonPrompt();
-            canInteract = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag(DeldunProject.Tags.player))
-        {
-            HideButtonPrompt();
-            canInteract = false;
-        }
-    }
-
-    public void ShowButtonPrompt()
-    {
-        buttonPrompt.SetActive(true);
-    }
-
-    public void HideButtonPrompt()
-    {
-        buttonPrompt.SetActive(false);
+        // Add the item to inventory
+        myInventory.AddItem(myitem);
     }
 }

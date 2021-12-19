@@ -1,11 +1,13 @@
 using UnityEngine;
+using DeldunProject;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
 public class Item : ScriptableObject
 {
+    [SerializeField] private ItemCategory category;
     [SerializeField] new private string name = "New Item";
     [SerializeField] private Sprite icon = null;
-    [SerializeField] private string description = "This is a new item";
+    [SerializeField, TextArea(10, 20)] private string description = "This is a new item";
 
     public string GetName()
     {
@@ -20,5 +22,10 @@ public class Item : ScriptableObject
     public string GetDescription()
     {
         return description;
+    }
+
+    public ItemCategory GetCategory()
+    {
+        return category;
     }
 }

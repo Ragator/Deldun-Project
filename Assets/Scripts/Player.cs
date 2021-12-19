@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
         myRigidBody.AddForce(moveDelta.normalized * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         if (isInvincible) return;
 

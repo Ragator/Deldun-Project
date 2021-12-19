@@ -6,11 +6,12 @@ public abstract class Interactable : MonoBehaviour
 {
     [SerializeField] private GameObject buttonPrompt;
 
-    private bool canInteract = false;
+    private bool playerInRange = false;
+    protected bool canInteract = true;
 
     private void Update()
     {
-        if (canInteract)
+        if (playerInRange && canInteract)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -23,10 +24,10 @@ public abstract class Interactable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(DeldunProject.Tags.player))
+        if (collision.gameObject.CompareTag(DeldunProject.Tags.player) && canInteract)
         {
             ShowButtonPrompt();
-            canInteract = true;
+            playerInRange = true;
         }
     }
 
@@ -35,16 +36,16 @@ public abstract class Interactable : MonoBehaviour
         if (collision.gameObject.CompareTag(DeldunProject.Tags.player))
         {
             HideButtonPrompt();
-            canInteract = false;
+            playerInRange = false;
         }
     }
 
-    private void ShowButtonPrompt()
+    protected void ShowButtonPrompt()
     {
         buttonPrompt.SetActive(true);
     }
 
-    private void HideButtonPrompt()
+    protected void HideButtonPrompt()
     {
         buttonPrompt.SetActive(false);
     }

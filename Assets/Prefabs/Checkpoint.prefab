@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 442679235334797563}
   - component: {fileID: 6782748692983038982}
   - component: {fileID: 7275616637820535184}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Checkpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &442679235334797560
 BoxCollider2D:
   m_ObjectHideFlags: 0

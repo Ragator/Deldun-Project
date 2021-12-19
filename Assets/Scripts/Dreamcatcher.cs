@@ -15,6 +15,6 @@ public class Dreamcatcher : Interactable
 
     override protected void Interact()
     {
-        myAudioSource.PlayOneShot(interactSound, 0.8f);
+        myAudioSource.PlayOneShot(interactSound, 0.5f);
     }
 }

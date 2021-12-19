@@ -17,17 +17,20 @@ public class Weapon : MonoBehaviour
     [SerializeField] private AudioClip hitSound;
     [SerializeField] private Image radialSprite;
     [SerializeField] private AudioClip slashSound;
+    [SerializeField] private int attackStaminaCost = 15;
 
     private AudioSource myAudioSource;
     private float rotation;
     private Vector3 mouseWorldPosition;
     public bool canRotate = true;
     private CapsuleCollider2D damageCollider;
+    private GameManager myGameManager;
 
     private void Start()
     {
         damageCollider = GetComponent<CapsuleCollider2D>();
         myAudioSource = GetComponent<AudioSource>();
+        myGameManager = GameObject.FindWithTag(DeldunProject.Tags.gameManager).GetComponent<GameManager>();
     }
 
     private void Update()
@@ -59,10 +62,12 @@ public class Weapon : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && canRotate)
         {
-            canRotate = false;
-            
-            // TO DO
-            radialSprite.enabled = true;
+            if (myGameManager.CanAffordStaminaCost(attackStaminaCost))
+            {
+                canRotate = false;
+                radialSprite.enabled = true;
+                myGameManager.StopStaminaRegeneration();
+            }
         }
 
         if (radialSprite.enabled)
@@ -100,6 +105,7 @@ public class Weapon : MonoBehaviour
         damageCollider.enabled = true;
         myAudioSource.PlayOneShot(slashSound, 0.05f);
         float timeout = 0;
+        myGameManager.ReduceStamina(attackStaminaCost);
 
         while (Mathf.Abs(Quaternion.Angle(transform.rotation, Quaternion.Euler(0, 0, slashRotation - 90))) > 1f)
         {
@@ -115,7 +121,7 @@ public class Weapon : MonoBehaviour
         }
 
         canRotate = true;
-
+        myGameManager.StartStaminaRegeneration();
         damageCollider.enabled = false;
     }
 
