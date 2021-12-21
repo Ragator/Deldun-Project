@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public abstract class Interactable : MonoBehaviour
 {
-    [SerializeField] private GameObject buttonPrompt;
+    private TextMeshProUGUI buttonPrompt;
 
     private bool playerInRange = false;
     protected bool canInteract = true;
+
+    protected virtual void Start()
+    {
+        buttonPrompt = GameObject.FindWithTag(DeldunProject.Tags.buttonPrompt).GetComponent<TextMeshProUGUI>();
+    }
 
     private void Update()
     {
@@ -42,11 +48,11 @@ public abstract class Interactable : MonoBehaviour
 
     protected void ShowButtonPrompt()
     {
-        buttonPrompt.SetActive(true);
+        buttonPrompt.enabled = true;
     }
 
     protected void HideButtonPrompt()
     {
-        buttonPrompt.SetActive(false);
+        buttonPrompt.enabled = false;
     }
 }

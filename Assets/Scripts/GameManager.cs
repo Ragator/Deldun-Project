@@ -54,11 +54,13 @@ public class GameManager : MonoBehaviour
         playerStamina = playerMaxStamina;
         playerStaminaBar.maxValue = playerMaxStamina;
 
-
         UpdateHealthbar();
+        UpdateSanityBar();
         UpdateStaminaBar();
 
         Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public void PlayerTakeDamage(int damage)
@@ -148,6 +150,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        StartStaminaRegeneration();
+    }
+
     private void UpdateStaminaBar()
     {
         playerStaminaBar.value = playerStamina;
@@ -168,5 +175,10 @@ public class GameManager : MonoBehaviour
         }
 
         staminaRegenerationActive = false;
+    }
+
+    private void UpdateSanityBar()
+    {
+        playerSanityBar.value = playerSanity;
     }
 }

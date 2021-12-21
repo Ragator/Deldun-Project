@@ -14,8 +14,9 @@ public class Door : Interactable
     private BoxCollider2D stopCollider;
     private AudioSource myAudioSource;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         myInventory = GameObject.FindWithTag(DeldunProject.Tags.inventory).GetComponent<Inventory>();
         mySprite = GetComponent<SpriteRenderer>();
         stopCollider = GetComponent<BoxCollider2D>();

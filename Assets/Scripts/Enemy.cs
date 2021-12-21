@@ -12,15 +12,15 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float knockbackStrength = 400f;
     [SerializeField] private float selfKnockbackStrength = 400f;
-    [SerializeField] private float maxHealth = 10f;
+    [SerializeField] private int maxHealth = 100;
     [SerializeField] private Slider healthBar;
-    [SerializeField] private int damage = 10;
+    [SerializeField] private int damage = 40;
     [SerializeField] private int currencyValue = 5;
 
     [SerializeField] private GameObject canvas;
     [SerializeField] private Animator myAnimator;
 
-    private float currentHealth;
+    private int currentHealth;
 
     private Path path;
     private int currentWaypoint = 0;
@@ -136,7 +136,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         canvas.SetActive(true);
         currentHealth -= damage;

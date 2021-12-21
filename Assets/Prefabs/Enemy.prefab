@@ -393,9 +393,9 @@ MonoBehaviour:
   seekingDistance: 5
   knockbackStrength: 500
   selfKnockbackStrength: 200
-  maxHealth: 10
+  maxHealth: 100
   healthBar: {fileID: 1560417814}
-  damage: 2
+  damage: 40
   currencyValue: 5
   canvas: {fileID: 711843259}
   myAnimator: {fileID: 3310604232499531627}

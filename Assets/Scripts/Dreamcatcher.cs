@@ -8,8 +8,9 @@ public class Dreamcatcher : Interactable
 
     private AudioSource myAudioSource;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         myAudioSource = GetComponent<AudioSource>();
     }
 

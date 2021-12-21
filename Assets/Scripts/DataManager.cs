@@ -17,6 +17,8 @@ namespace DeldunProject
         public const string levelLoader = "Level Loader";
         public const string audioManager = "Audio Manager";
         public const string inventory = "Inventory";
+        public const string buttonPrompt = "Button Prompt";
+        public const string UIManager = "UI Manager";
     }
 
     public enum ItemCategory

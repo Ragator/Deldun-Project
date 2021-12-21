@@ -12015,6 +12015,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3131599707468910398, guid: b09438eca7e2e1245b8f4a4fbf4c8671, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3303906264168838507, guid: b09438eca7e2e1245b8f4a4fbf4c8671, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12217,6 +12221,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7896646816247140867, guid: b09438eca7e2e1245b8f4a4fbf4c8671, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397462249813470282, guid: b09438eca7e2e1245b8f4a4fbf4c8671, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8424820624196826346, guid: b09438eca7e2e1245b8f4a4fbf4c8671, type: 3}

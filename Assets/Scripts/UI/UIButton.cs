@@ -7,7 +7,7 @@ public abstract class UIButton : MonoBehaviour
 {
     private Button myButton;
 
-    private void Start()
+    protected virtual void Start()
     {
         myButton = GetComponent<Button>();
         myButton.onClick.AddListener(ButtonPressed);

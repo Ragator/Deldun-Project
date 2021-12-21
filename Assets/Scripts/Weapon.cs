@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Transform playerSprite;
     [SerializeField] private Transform swordSprite;
-    [SerializeField] private float weaponDamage = 2f;
+    [SerializeField] private int weaponDamage = 20;
     [SerializeField] private float weaponKnockbackStrength = 500f;
     [SerializeField] private float knockbackToPlayerStrength = 500f;
     [SerializeField] private float rotationSpeed = 300f;

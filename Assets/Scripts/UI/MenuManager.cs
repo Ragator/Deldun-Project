@@ -6,6 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject inventoryMenu;
     [SerializeField] private GameObject systemMenu;
+    [SerializeField] private GameObject settingsMenu;
 
     public void MenuButtonPressed(GameObject menu)
     {
@@ -20,5 +21,11 @@ public class MenuManager : MonoBehaviour
     {
         inventoryMenu.SetActive(false);
         systemMenu.SetActive(false);
+        settingsMenu.SetActive(false);
+    }
+
+    public GameObject GetSettingsMenu()
+    {
+        return settingsMenu;
     }
 }

@@ -12,8 +12,9 @@ public class Chest : Interactable
     private Inventory myInventory;
     private AudioSource myAudioSource;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         myInventory = GameObject.FindWithTag(DeldunProject.Tags.inventory).GetComponent<Inventory>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myAudioSource = GetComponent<AudioSource>();

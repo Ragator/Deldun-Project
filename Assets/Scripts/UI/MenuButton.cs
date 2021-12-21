@@ -10,9 +10,12 @@ public class MenuButton : UIButton
 
     private void Update()
     {
-        if (Input.GetKeyDown(keyPress))
+        if (!string.IsNullOrEmpty(keyPress))
         {
-            ButtonPressed();
+            if (Input.GetKeyDown(keyPress))
+            {
+                ButtonPressed();
+            }
         }
     }
 

@@ -12,6 +12,8 @@ TagManager:
   - Audio Manager
   - PostProcess
   - Inventory
+  - Button Prompt
+  - UI Manager
   layers:
   - Default
   - TransparentFX
