@@ -26,12 +26,13 @@ public class AudioManager : MonoBehaviour
         BGM = GetComponent<AudioSource>();
     }
 
-    public void SwitchMusic(AudioClip newMusic)
+    public void SwitchMusic(AudioClip newMusic, float volume)
     {
         if (BGM.clip.name != newMusic.name)
         {
             BGM.Stop();
             BGM.clip = newMusic;
+            BGM.volume = volume;
             BGM.Play();
         }
     }

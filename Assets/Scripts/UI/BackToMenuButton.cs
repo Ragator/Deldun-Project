@@ -19,7 +19,7 @@ public class BackToMenuButton : UIButton
 
         menuManager.CloseAllMenus();
         gameManager.HideUIElements();
-        audioManager.SwitchMusic(menuMusic);
+        audioManager.SwitchMusic(menuMusic, 0.8f);
         levelLoader.ResetLastDoor();
         levelLoader.LoadTargetScene(menuSceneName);
     }

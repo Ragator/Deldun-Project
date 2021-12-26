@@ -27,7 +27,7 @@ public class NewGameButton : MonoBehaviour
     private void StartNewGame()
     {
         gameManager.ShowUIElements();
-        audioManager.SwitchMusic(firstSceneMusic);
+        audioManager.SwitchMusic(firstSceneMusic, 0.8f);
         levelLoader.LoadTargetScene(firstSceneName);
     }
 }

@@ -8,6 +8,7 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] private Animator crossfade;
     [SerializeField] private float crossfadeDuration = 1f;
     [SerializeField] private string doorParentName = "/Doorways/";
+    [SerializeField] private GameManager myGameManager;
 
     private string targetDoor;
     //private bool transitionHappening = false;
@@ -22,6 +23,7 @@ public class LevelLoader : MonoBehaviour
     {
         if (TransitionHappening) return;
 
+        myGameManager.isInputEnabled = false;
         TransitionHappening = true;
         targetDoor = targetDoorName;
         StartCoroutine(LoadLevel(targetScene));
@@ -31,6 +33,7 @@ public class LevelLoader : MonoBehaviour
     {
         if (TransitionHappening) return;
 
+        myGameManager.isInputEnabled = false;
         TransitionHappening = true;
         StartCoroutine(LoadLevel(targetScene));
     }
@@ -46,6 +49,7 @@ public class LevelLoader : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        myGameManager.isInputEnabled = true;
         TransitionHappening = false;
 
         crossfade.SetTrigger("Start");

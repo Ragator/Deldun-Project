@@ -1434,7 +1434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSceneMusic: {fileID: 8300000, guid: 3e352576706a4d741a3cb1b39fb32793, type: 3}
-  firstSceneName: Outside
+  firstSceneName: Town
 --- !u!1 &1163365828
 GameObject:
   m_ObjectHideFlags: 0

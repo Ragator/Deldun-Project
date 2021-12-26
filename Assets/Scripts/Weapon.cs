@@ -25,6 +25,7 @@ public class Weapon : MonoBehaviour
     public bool canRotate = true;
     private CapsuleCollider2D damageCollider;
     private GameManager myGameManager;
+    private float attackAngle;
 
     private void Start()
     {
@@ -94,30 +95,33 @@ public class Weapon : MonoBehaviour
     {
         Vector2 swordDirection = (transform.position + transform.up * 10) - transform.position;
         Vector2 mouseDirection = mouseWorldPosition - transform.position;
-        float angle = Vector2.SignedAngle(swordDirection, mouseDirection) / 360f;
+        attackAngle = Vector2.SignedAngle(swordDirection, mouseDirection) / 360f;
 
-        radialSprite.fillClockwise = angle < 0;
-        radialSprite.fillAmount = Mathf.Abs(angle);
+        radialSprite.fillClockwise = attackAngle < 0;
+        radialSprite.fillAmount = Mathf.Abs(attackAngle);
     }
 
     private IEnumerator Slash(float slashRotation)
     {
-        damageCollider.enabled = true;
-        myAudioSource.PlayOneShot(slashSound, 0.05f);
-        float timeout = 0;
-        myGameManager.ReduceStamina(attackStaminaCost);
-
-        while (Mathf.Abs(Quaternion.Angle(transform.rotation, Quaternion.Euler(0, 0, slashRotation - 90))) > 1f)
+        if (Mathf.Abs(attackAngle) > 0.03f)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, slashRotation - 90), slashSpeed * Time.fixedDeltaTime);
+            damageCollider.enabled = true;
+            myAudioSource.PlayOneShot(slashSound, 0.05f);
+            float timeout = 0;
+            myGameManager.ReduceStamina(attackStaminaCost);
 
-            timeout += Time.fixedDeltaTime;
-
-            if (timeout > 0.5f)
+            while (Mathf.Abs(Quaternion.Angle(transform.rotation, Quaternion.Euler(0, 0, slashRotation - 90))) > 1f)
             {
-                break;
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, slashRotation - 90), slashSpeed * Time.fixedDeltaTime);
+
+                timeout += Time.fixedDeltaTime;
+
+                if (timeout > 0.5f)
+                {
+                    break;
+                }
+                yield return new WaitForFixedUpdate();
             }
-            yield return new WaitForFixedUpdate();
         }
 
         canRotate = true;

@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public bool isInputEnabled = true;
+
     [SerializeField] private Slider playerHealthBar;
     [SerializeField] private int playerMaxHealth = 500;
 

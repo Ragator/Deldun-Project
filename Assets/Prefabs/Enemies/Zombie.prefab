@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: speed
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 3469695311216964099, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
+      propertyPath: damage
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 3469695311216964123, guid: b0d20be2df005ad439a9a402b9e47250, type: 3}
       propertyPath: m_Name
       value: Zombie

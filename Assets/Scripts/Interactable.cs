@@ -6,6 +6,7 @@ using TMPro;
 public abstract class Interactable : MonoBehaviour
 {
     private TextMeshProUGUI buttonPrompt;
+    private Keybinds myKeybinds;
 
     private bool playerInRange = false;
     protected bool canInteract = true;
@@ -13,13 +14,14 @@ public abstract class Interactable : MonoBehaviour
     protected virtual void Start()
     {
         buttonPrompt = GameObject.FindWithTag(DeldunProject.Tags.buttonPrompt).GetComponent<TextMeshProUGUI>();
+        myKeybinds = GameObject.FindWithTag(DeldunProject.Tags.gameManager).GetComponent<Keybinds>();
     }
 
     private void Update()
     {
         if (playerInRange && canInteract)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(myKeybinds.keybinds[Action.interact]))
             {
                 Interact();
             }

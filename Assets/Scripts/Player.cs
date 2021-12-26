@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClip hitSound;
     private AudioSource audioSource;
     private GameManager gameManager;
+    private Keybinds myKeybinds;
 
     private Rigidbody2D myRigidBody;
     private Vector2 moveDelta;
@@ -28,13 +30,17 @@ public class Player : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         gameManager = GameObject.FindWithTag(DeldunProject.Tags.gameManager).GetComponent<GameManager>();
+        myKeybinds = GameObject.FindWithTag(DeldunProject.Tags.gameManager).GetComponent<Keybinds>();
     }
 
     private void Update()
     {
         // Movement input
-        moveDelta.x = Input.GetAxisRaw("Horizontal");
-        moveDelta.y = Input.GetAxisRaw("Vertical");
+        if (gameManager.isInputEnabled)
+        {
+            moveDelta.x = Convert.ToInt32(Input.GetKey(myKeybinds.keybinds[Action.right])) - Convert.ToInt32(Input.GetKey(myKeybinds.keybinds[Action.left]));
+            moveDelta.y = Convert.ToInt32(Input.GetKey(myKeybinds.keybinds[Action.up])) - Convert.ToInt32(Input.GetKey(myKeybinds.keybinds[Action.down]));
+        }
 
         // Walking animation
         if (moveDelta.x != 0 || moveDelta.y != 0)
@@ -49,7 +55,10 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        myRigidBody.AddForce(moveDelta.normalized * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
+        if (gameManager.isInputEnabled)
+        {
+            myRigidBody.AddForce(moveDelta.normalized * moveSpeed * Time.deltaTime, ForceMode2D.Impulse);
+        }
     }
 
     public void TakeDamage(int damage)

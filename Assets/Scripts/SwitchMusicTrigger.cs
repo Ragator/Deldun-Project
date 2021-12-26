@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwitchMusicTrigger : MonoBehaviour
 {
     [SerializeField] private AudioClip musicToSwitchTo;
+    [SerializeField] private float musicVolume = 0.5f;
 
     private AudioManager audioManager;
 
@@ -17,7 +18,7 @@ public class SwitchMusicTrigger : MonoBehaviour
     {
         if (collision.CompareTag(DeldunProject.Tags.player) && musicToSwitchTo != null)
         {
-            audioManager.SwitchMusic(musicToSwitchTo);
+            audioManager.SwitchMusic(musicToSwitchTo, musicVolume);
         }
     }
 }

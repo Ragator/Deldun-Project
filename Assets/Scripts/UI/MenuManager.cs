@@ -10,11 +10,14 @@ public class MenuManager : MonoBehaviour
 
     public void MenuButtonPressed(GameObject menu)
     {
-        if (!menu.activeSelf)
+        if (GameManager.instance.isInputEnabled)
         {
-            CloseAllMenus();
+            if (!menu.activeSelf)
+            {
+                CloseAllMenus();
+            }
+            menu.SetActive(!menu.activeSelf);
         }
-        menu.SetActive(!menu.activeSelf);
     }
 
     public void CloseAllMenus()
@@ -24,8 +27,8 @@ public class MenuManager : MonoBehaviour
         settingsMenu.SetActive(false);
     }
 
-    public GameObject GetSettingsMenu()
+    public void MainMenuSettingsButtonPressed()
     {
-        return settingsMenu;
+        settingsMenu.SetActive(!settingsMenu.activeSelf);
     }
 }

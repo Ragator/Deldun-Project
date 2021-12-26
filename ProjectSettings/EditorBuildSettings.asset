@@ -9,7 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: f6380114618848d4eb13c17b15e2da21
   - enabled: 1
-    path: Assets/Scenes/Outside.unity
+    path: Assets/Scenes/Forest.unity
+    guid: b6b4857d4e1255b42a13a8f50139f7b8
+  - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: 7d177cc4e19371e459c4c0707007d18b
+  - enabled: 1
+    path: Assets/Scenes/Town.unity
     guid: 39c91c7d79f6ffd42a3196df10e09b1d
   - enabled: 1
     path: Assets/Scenes/HUB.unity
