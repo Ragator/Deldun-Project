@@ -32,6 +32,8 @@ public class Enemy : MonoBehaviour
     private GameObject player;
     private Rigidbody2D myRigidbody;
 
+    private bool isChasing = false;
+
 
     private void Start()
     {
@@ -48,6 +50,15 @@ public class Enemy : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.maxValue = maxHealth;
         UpdateHealthBar(currentHealth);
+
+        if (Random.value < 0.5f)
+        {
+            FaceLeft();
+        }
+        else
+        {
+            FaceRight();
+        }
     }
 
     private void UpdatePath()
@@ -56,6 +67,7 @@ public class Enemy : MonoBehaviour
         {
             if (seeker.IsDone())
             {
+                isChasing = true;
                 myAnimator.SetBool("isChasing", true);
                 seeker.StartPath(myRigidbody.position, player.transform.position, OnPathComplete);
             }
@@ -69,7 +81,10 @@ public class Enemy : MonoBehaviour
             path = p;
             currentWaypoint = 0;
             if (Vector2.Distance(player.transform.position, transform.position) > seekingDistance)
+            {
+                isChasing = false;
                 myAnimator.SetBool("isChasing", false);
+            }
         }
     }
 
@@ -103,16 +118,40 @@ public class Enemy : MonoBehaviour
         }
 
         // Swap sprite direction
-        if (myRigidbody.velocity.x <= 0.01f)
+        if (isChasing)
         {
-            transform.localScale = new Vector2(-1f, 1f);
-            canvas.transform.localScale = new Vector2(-1f, 1f);
+            if (player.transform.position.x <= transform.position.x)
+            {
+                FaceLeft();
+            }
+            else
+            {
+                FaceRight();
+            }
         }
-        else if (myRigidbody.velocity.x >= -0.01f)
+        else
         {
-            transform.localScale = new Vector2(1f, 1f);
-            canvas.transform.localScale = new Vector2(1f, 1f);
+            if (myRigidbody.velocity.x <= 0.01f)
+            {
+                FaceLeft();
+            }
+            else if (myRigidbody.velocity.x >= -0.01f)
+            {
+                FaceRight();
+            }
         }
+    }
+
+    private void FaceLeft()
+    {
+        transform.localScale = new Vector2(-1f, 1f);
+        canvas.transform.localScale = new Vector2(-1f, 1f);
+    }
+
+    private void FaceRight()
+    {
+        transform.localScale = new Vector2(1f, 1f);
+        canvas.transform.localScale = new Vector2(1f, 1f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

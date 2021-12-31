@@ -28,4 +28,9 @@ public class Item : ScriptableObject
     {
         return category;
     }
+
+    public virtual void Use()
+    {
+
+    }
 }

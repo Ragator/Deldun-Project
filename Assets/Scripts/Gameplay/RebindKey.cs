@@ -18,6 +18,7 @@ public class RebindKey : MonoBehaviour
     {
         rebindButton.onClick.AddListener(ButtonPressed);
         myKeybinds.onKeybindChangedCallback += UpdateKeybind;
+        UpdateKeybind();
     }
 
     private void ButtonPressed()
