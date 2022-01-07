@@ -154,16 +154,9 @@ public class Enemy : MonoBehaviour
         canvas.transform.localScale = new Vector2(1f, 1f);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-/*        if (collision.gameObject.CompareTag("Sword"))
-        {
-            // Knockback
-            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
-            myRigidbody.AddForce(knockbackDirection * knockbackStrength);
-        }*/
-
-        if (collision.gameObject.CompareTag(DeldunProject.Tags.player))
+        if (collision.gameObject.CompareTag(DeldunProject.Tags.player) && collision.isTrigger)
         {
             collision.gameObject.GetComponent<Player>().TakeDamage(damage);
 

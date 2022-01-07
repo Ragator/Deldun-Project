@@ -19,6 +19,7 @@ namespace DeldunProject
         public const string inventory = "Inventory";
         public const string buttonPrompt = "Button Prompt";
         public const string UIManager = "UI Manager";
+        public const string equipmentManager = "Equipment Manager";
     }
 
     public enum ItemCategory

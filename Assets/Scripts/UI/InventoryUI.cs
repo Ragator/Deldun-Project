@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private Inventory myInventory;
     [SerializeField] private GameObject defaultInventorySlot;
     [SerializeField] private GameObject consumablesParent;
+    [SerializeField] private TextMeshProUGUI itemDescription;
+    [SerializeField] private EquipmentManager myEquipmentManager;
 
     private readonly Dictionary<Item, InventorySlot> slots = new Dictionary<Item, InventorySlot>();
 
@@ -14,6 +17,8 @@ public class InventoryUI : MonoBehaviour
     {
         InventorySlot newSlot = Instantiate(defaultInventorySlot).GetComponent<InventorySlot>();
         newSlot.MyInventory = myInventory;
+        newSlot.MyInventoryUI = this;
+        newSlot.MyEquipmentManager = myEquipmentManager;
         newSlot.Item = itemToAdd;
         newSlot.ItemIcon.sprite = itemToAdd.GetIcon();
         newSlot.transform.parent = consumablesParent.transform;
@@ -31,5 +36,10 @@ public class InventoryUI : MonoBehaviour
     {
         Destroy(slots[itemToRemove].gameObject);
         slots.Remove(itemToRemove);
+    }
+
+    public void UpdateTextBoxes(Item item)
+    {
+        itemDescription.text = item.GetDescription();
     }
 }

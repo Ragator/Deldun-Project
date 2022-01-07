@@ -32,7 +32,7 @@ public abstract class Interactable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(DeldunProject.Tags.player) && canInteract)
+        if (collision.gameObject.CompareTag(DeldunProject.Tags.player) && canInteract && collision.isTrigger)
         {
             ShowButtonPrompt();
             playerInRange = true;
@@ -41,7 +41,7 @@ public abstract class Interactable : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(DeldunProject.Tags.player))
+        if (collision.gameObject.CompareTag(DeldunProject.Tags.player) && collision.isTrigger)
         {
             HideButtonPrompt();
             playerInRange = false;

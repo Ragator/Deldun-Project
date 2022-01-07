@@ -15,11 +15,11 @@ E:/Program files F/UnityProjects/Deldun-Project
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-58774
+58248
 Successfully changed project path to: E:/Program files F/UnityProjects/Deldun-Project
 E:/Program files F/UnityProjects/Deldun-Project
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 63.25 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 60.04 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.4f1 (0abb6314276a)
 [Subsystems] Discovering subsystems at path E:/Program files F/Unity/Unity Hub/Editor/2020.3.4f1/Editor/Data/Resources/UnitySubsystems
@@ -36,206 +36,64 @@ Initialize mono
 Mono path[0] = 'E:/Program files F/Unity/Unity Hub/Editor/2020.3.4f1/Editor/Data/Managed'
 Mono path[1] = 'E:/Program files F/Unity/Unity Hub/Editor/2020.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'E:/Program files F/Unity/Unity Hub/Editor/2020.3.4f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56680
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56864
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: E:/Program files F/Unity/Unity Hub/Editor/2020.3.4f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: E:/Program files F/Unity/Unity Hub/Editor/2020.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: E:/Program files F/Unity/Unity Hub/Editor/2020.3.4f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.001752 seconds.
+Registered in 0.001708 seconds.
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 61.21 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 67.52 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.339 seconds
+- Completed reload, in  2.293 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001547 seconds.
+Registered in 0.001743 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 62.64 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 80.03 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.943 seconds
+- Completed reload, in  1.118 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
-Refreshing native plugins compatible for Editor in 0.73 ms, found 1 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
+Refreshing native plugins compatible for Editor in 0.85 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3356 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 3357 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 150.7 MB.
 System memory in use after: 150.8 MB.
 
-Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 3802.
-Total: 2.717900 ms (FindLiveObjects: 0.390800 ms CreateObjectMapping: 0.082600 ms MarkObjects: 2.098300 ms  DeleteObjects: 0.145300 ms)
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 3803.
+Total: 3.098200 ms (FindLiveObjects: 0.671700 ms CreateObjectMapping: 0.107600 ms MarkObjects: 2.167200 ms  DeleteObjects: 0.150400 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Prefabs/Inventory Slot.prefab
-  artifactKey: Guid(e53d4ba18e4608a4a9648ba9eec5a25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Inventory Slot.prefab using Guid(e53d4ba18e4608a4a9648ba9eec5a25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff515c3d157064e885421270fc698a6a') in 0.077644 seconds
-  Import took 0.083868 seconds .
+  path: Assets/Scripts/UI/EquipmentSlot.cs
+  artifactKey: Guid(2a0c6f78e9333ca4682def650af72155) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/UI/EquipmentSlot.cs using Guid(2a0c6f78e9333ca4682def650af72155) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1ac37970b6f542afcfb0adb12ebb22a') in 0.038755 seconds
+  Import took 0.044462 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000725 seconds.
-  path: Assets/Prefabs/Game Manager.prefab
-  artifactKey: Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Game Manager.prefab using Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5cb1824266cecda64da17a816cb5046') in 0.063753 seconds
-  Import took 0.070391 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 13.105755 seconds.
-  path: Assets/Prefabs/Game Manager.prefab
-  artifactKey: Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Game Manager.prefab using Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '718163568afa3225e995687b6b4be562') in 0.041590 seconds
-  Import took 0.049099 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000212 seconds.
-  path: Assets/Prefabs/Inventory Slot.prefab
-  artifactKey: Guid(e53d4ba18e4608a4a9648ba9eec5a25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Inventory Slot.prefab using Guid(e53d4ba18e4608a4a9648ba9eec5a25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42eaa7d6402694834bab79cc092c7525') in 0.022763 seconds
-  Import took 0.028763 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.117582 seconds.
-  path: Assets/Prefabs/Game Manager.prefab
-  artifactKey: Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Game Manager.prefab using Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4a1abec56572b99ef15345593fd5e8a') in 0.036872 seconds
-  Import took 0.044020 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000258 seconds.
-  path: Assets/Prefabs/Inventory Slot.prefab
-  artifactKey: Guid(e53d4ba18e4608a4a9648ba9eec5a25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Inventory Slot.prefab using Guid(e53d4ba18e4608a4a9648ba9eec5a25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b1d3c2bf501d4f70330808e51ad62a9') in 0.020459 seconds
-  Import took 0.026256 seconds .
+  Time since last request: 156.022822 seconds.
+  path: Assets/Scripts/Gameplay/CharacterStats.cs
+  artifactKey: Guid(ee93e8667e3bf354ab7a764bc9d37a75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Gameplay/CharacterStats.cs using Guid(ee93e8667e3bf354ab7a764bc9d37a75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01a630c282fa5773250eca4394f428da') in 0.006275 seconds
+  Import took 0.012406 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.002000 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.71 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.814 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3250 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 141.1 MB.
-System memory in use after: 141.2 MB.
-
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3806.
-Total: 2.470500 ms (FindLiveObjects: 0.396800 ms CreateObjectMapping: 0.085400 ms MarkObjects: 1.858600 ms  DeleteObjects: 0.128800 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 67.335927 seconds.
-  path: Assets/Prefabs/Game Manager.prefab
-  artifactKey: Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Game Manager.prefab using Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b99349d81e1496c749922159c2d41b35') in 0.092048 seconds
-  Import took 0.100451 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000210 seconds.
-  path: Assets/Prefabs/Inventory Slot.prefab
-  artifactKey: Guid(e53d4ba18e4608a4a9648ba9eec5a25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Inventory Slot.prefab using Guid(e53d4ba18e4608a4a9648ba9eec5a25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c34be5fb7bcdd62261c868801da7e44d') in 0.008428 seconds
-  Import took 0.014221 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 87.472488 seconds.
-  path: Assets/Prefabs/Game Manager.prefab
-  artifactKey: Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Game Manager.prefab using Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb274eb887074b730fabf79652b2cb3e') in 0.020370 seconds
-  Import took 0.027730 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.999548 seconds.
-  path: Assets/Prefabs/Game Manager.prefab
-  artifactKey: Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Game Manager.prefab using Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '524cf5f9adcd268da078302e844d5b14') in 0.017361 seconds
-  Import took 0.023712 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001941 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.80 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.857 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.74 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3250 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 141.2 MB.
-System memory in use after: 141.3 MB.
-
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3810.
-Total: 3.171700 ms (FindLiveObjects: 0.453200 ms CreateObjectMapping: 0.103000 ms MarkObjects: 2.468500 ms  DeleteObjects: 0.145500 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 8671.207234 seconds.
-  path: Assets/Prefabs/Inventory Slot.prefab
-  artifactKey: Guid(e53d4ba18e4608a4a9648ba9eec5a25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Inventory Slot.prefab using Guid(e53d4ba18e4608a4a9648ba9eec5a25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fafadf9169212e991626559a8b861a3b') in 0.062770 seconds
-  Import took 0.069472 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000189 seconds.
-  path: Assets/Prefabs/Game Manager.prefab
-  artifactKey: Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Game Manager.prefab using Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4f550aa756f4d2cd2e5bb0080b8241a') in 0.038399 seconds
-  Import took 0.045111 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 6.741256 seconds.
-  path: Assets/Prefabs/Game Manager.prefab
-  artifactKey: Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Game Manager.prefab using Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00a34ecdfd25448dc5d6ebddb61dcb10') in 0.020024 seconds
-  Import took 0.027120 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000196 seconds.
-  path: Assets/Prefabs/Inventory Slot.prefab
-  artifactKey: Guid(e53d4ba18e4608a4a9648ba9eec5a25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Inventory Slot.prefab using Guid(e53d4ba18e4608a4a9648ba9eec5a25b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2267421a1631096a01473e38d0c2157') in 0.008915 seconds
-  Import took 0.014576 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002364 seconds.
+Registered in 0.002042 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
@@ -243,117 +101,473 @@ Native extension for WebGL target not found
 Refreshing native plugins compatible for Editor in 0.75 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.837 seconds
+- Completed reload, in  0.836 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.79 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.84 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3250 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 141.4 MB.
-System memory in use after: 141.5 MB.
+Unloading 3252 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 140.9 MB.
+System memory in use after: 141.0 MB.
 
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3814.
-Total: 2.713700 ms (FindLiveObjects: 0.382700 ms CreateObjectMapping: 0.081900 ms MarkObjects: 2.107400 ms  DeleteObjects: 0.140500 ms)
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3808.
+Total: 2.894300 ms (FindLiveObjects: 0.537000 ms CreateObjectMapping: 0.087600 ms MarkObjects: 2.132700 ms  DeleteObjects: 0.135400 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.002290 seconds.
+Registered in 0.002288 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.69 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.74 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.830 seconds
+- Completed reload, in  0.810 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Refreshing native plugins compatible for Editor in 0.68 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3250 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 141.4 MB.
-System memory in use after: 141.5 MB.
+Unloading 3252 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 141.0 MB.
+System memory in use after: 141.1 MB.
 
-Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3818.
-Total: 3.615900 ms (FindLiveObjects: 0.577200 ms CreateObjectMapping: 0.237100 ms MarkObjects: 2.641400 ms  DeleteObjects: 0.158900 ms)
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3812.
+Total: 2.657900 ms (FindLiveObjects: 0.456600 ms CreateObjectMapping: 0.099800 ms MarkObjects: 1.968500 ms  DeleteObjects: 0.132100 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 397.847988 seconds.
+  path: Assets/Scripts/Managers/EquipmentManager.cs
+  artifactKey: Guid(f893072763f451f4fa6a20559975b295) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Managers/EquipmentManager.cs using Guid(f893072763f451f4fa6a20559975b295) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73aedefc703ab31d3721bb493b3ed610') in 0.011154 seconds
+  Import took 0.018422 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.002369 seconds.
+Registered in 0.004510 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.73 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 1.82 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.961 seconds
+- Completed reload, in  1.019 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.08 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 1.82 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3250 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 141.4 MB.
-System memory in use after: 141.5 MB.
+Unloading 3253 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 141.0 MB.
+System memory in use after: 141.1 MB.
 
-Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3822.
-Total: 3.984300 ms (FindLiveObjects: 0.417300 ms CreateObjectMapping: 0.090600 ms MarkObjects: 3.286700 ms  DeleteObjects: 0.187900 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 844.343923 seconds.
-  path: Assets/Prefabs/Game Manager.prefab
-  artifactKey: Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Game Manager.prefab using Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3434d67dfa32afa391b5c0a8c3f72e61') in 0.089790 seconds
-  Import took 0.097875 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 7.526391 seconds.
-  path: Assets/Prefabs/Game Manager.prefab
-  artifactKey: Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Game Manager.prefab using Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '021c63825d61ea9c2e921041b7181646') in 0.019045 seconds
-  Import took 0.025771 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 15.749039 seconds.
-  path: Assets/Prefabs/Game Manager.prefab
-  artifactKey: Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Game Manager.prefab using Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cab40459a0b122d9a226c93508813a94') in 0.020689 seconds
-  Import took 0.027344 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.641796 seconds.
-  path: Assets/Prefabs/Game Manager.prefab
-  artifactKey: Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Game Manager.prefab using Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e021ce6115533992128c39f73c6e06f8') in 0.018825 seconds
-  Import took 0.025219 seconds .
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3817.
+Total: 7.799100 ms (FindLiveObjects: 1.161600 ms CreateObjectMapping: 0.523300 ms MarkObjects: 5.521400 ms  DeleteObjects: 0.590900 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001914 seconds.
+Registered in 0.002111 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 0.79 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.71 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.821 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3253 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 141.1 MB.
+System memory in use after: 141.2 MB.
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3821.
+Total: 2.726400 ms (FindLiveObjects: 0.362500 ms CreateObjectMapping: 0.082000 ms MarkObjects: 2.142100 ms  DeleteObjects: 0.138700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 783.171361 seconds.
+  path: Assets/Scripts/Managers/EquipmentManager.cs
+  artifactKey: Guid(f893072763f451f4fa6a20559975b295) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Managers/EquipmentManager.cs using Guid(f893072763f451f4fa6a20559975b295) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9de2ab13b57031d729e26a67d0e803f') in 0.005918 seconds
+  Import took 0.011082 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.414074 seconds.
+  path: Assets/Scenes/Home.unity
+  artifactKey: Guid(7d177cc4e19371e459c4c0707007d18b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Home.unity using Guid(7d177cc4e19371e459c4c0707007d18b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49a2d417aa99365ba6e12784d9eba666') in 0.019939 seconds
+  Import took 0.026323 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.096340 seconds.
+  path: Assets/Artwork/Atlas.spriteatlas
+  artifactKey: Guid(f91755a082815684999de51d4af6231a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Artwork/Atlas.spriteatlas using Guid(f91755a082815684999de51d4af6231a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_4. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_5. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_6. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_13. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_14. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_15. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_16. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_17. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_18. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_19. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_20. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_21. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_22. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_23. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_24. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_25. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_26. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_27. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_28. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_29. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_30. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_36. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_38. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_39. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_40. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_41. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_42. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_43. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_44. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_45. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_46. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_47. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_48. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_49. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_50. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_51. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_52. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_53. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_54. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_55. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_56. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_57. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_58. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_59. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_60. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Atlas_61. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Chest_0. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Chest_1. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Collider. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Crate_0. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Crate_1. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Floor_0. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite GoDown. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite GoLeft. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite GoRight. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite GoUp. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite grass. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite GroundWall_0. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite GroundWall_1. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite GroundWall_2. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Hole. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Player_0. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Player_1. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite small_zombie. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Sprite Sheet_0. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Sprite Sheet_1. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Sprite Sheet_2. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Sprite Sheet_11. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Stairs_0. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Stairs_1. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Stairs_2. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Stairs_3. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Stairs_4. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Stairs_5. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Wall_0. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Wall_1. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Wall_2. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite Zombie. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite bed. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite bedSheets. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite empty. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite healthPotion. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite s_checkpoint. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_2. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_3. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_4. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_5. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_6. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_7. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_8. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_9. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_10. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_11. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_12. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_13. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_14. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_15. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_16. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_17. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_18. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_19. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_21. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_24. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_25. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_26. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_27. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_28. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_29. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_30. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_31. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_32. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_33. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_34. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_35. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_36. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_37. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_38. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_39. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_40. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_41. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_42. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_43. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_44. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_45. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_46. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_47. Please repack all your sprite atlases.
+
+Invalid sprite atlas asset encountered when matching atlas for sprite sprite_sheet2_48. Please repack all your sprite atlases.
+
+ -> (artifact id: '74b2e07a69fa09c875a72a41be6fbf3b') in 0.027070 seconds
+  Import took 0.033473 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002602 seconds.
+  path: Assets/Artwork/Atlas.spriteatlas
+  artifactKey: Guid(f91755a082815684999de51d4af6231a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Artwork/Atlas.spriteatlas using Guid(f91755a082815684999de51d4af6231a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74b2e07a69fa09c875a72a41be6fbf3b') in 0.006426 seconds
+  Import took 0.011894 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 174.582986 seconds.
+  path: Assets/Artwork/sprite_sheet2.png
+  artifactKey: Guid(27e804c5b33b0f9419f51a209928f146) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Artwork/sprite_sheet2.png using Guid(27e804c5b33b0f9419f51a209928f146) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce9b75d3eadf81722e8f21e496bfea3c') in 0.182469 seconds
+  Import took 0.189735 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.573779 seconds.
+  path: Assets/Artwork/sprite_sheet2.png
+  artifactKey: Guid(27e804c5b33b0f9419f51a209928f146) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Artwork/sprite_sheet2.png using Guid(27e804c5b33b0f9419f51a209928f146) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96d5559d403987e509d36971031c2702') in 0.095056 seconds
+  Import took 0.102764 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.715356 seconds.
+  path: Assets/Prefabs/Game Manager.prefab
+  artifactKey: Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Game Manager.prefab using Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a8310b9eea8c866f14ca3baf43c291a') in 0.076846 seconds
+  Import took 0.083899 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002252 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.90 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
 - Completed reload, in  0.838 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.80 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.71 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3250 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 141.5 MB.
-System memory in use after: 141.6 MB.
+Unloading 3253 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 144.5 MB.
+System memory in use after: 144.6 MB.
 
-Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3826.
-Total: 3.333800 ms (FindLiveObjects: 0.467000 ms CreateObjectMapping: 0.083000 ms MarkObjects: 2.623600 ms  DeleteObjects: 0.158300 ms)
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3848.
+Total: 2.542800 ms (FindLiveObjects: 0.416800 ms CreateObjectMapping: 0.084300 ms MarkObjects: 1.905300 ms  DeleteObjects: 0.135300 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002353 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.852 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3253 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 144.5 MB.
+System memory in use after: 144.6 MB.
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 3852.
+Total: 2.613500 ms (FindLiveObjects: 0.443100 ms CreateObjectMapping: 0.088300 ms MarkObjects: 1.952400 ms  DeleteObjects: 0.128800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 39073.607811 seconds.
+  path: Assets/Prefabs/Game Manager.prefab
+  artifactKey: Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Game Manager.prefab using Guid(b09438eca7e2e1245b8f4a4fbf4c8671) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9518d2ce7ec9b8591288cddaa2f17a95') in 0.275723 seconds
+  Import took 0.386870 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 26.831213 seconds.
+  path: Assets/Prefabs/Objects/Bed.prefab
+  artifactKey: Guid(3f1e6d30990dd614c8eeb93c464662cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Objects/Bed.prefab using Guid(3f1e6d30990dd614c8eeb93c464662cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58ca37370bcfe9cebfc0e0bb94ad29d0') in 0.059462 seconds
+  Import took 0.066131 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 34.502054 seconds.
+  path: Assets/Prefabs/Objects/Bed.prefab
+  artifactKey: Guid(3f1e6d30990dd614c8eeb93c464662cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Objects/Bed.prefab using Guid(3f1e6d30990dd614c8eeb93c464662cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a22708fa69b98d9f06ed482a0aec4625') in 0.015276 seconds
+  Import took 0.021722 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

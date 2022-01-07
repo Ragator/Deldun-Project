@@ -45,7 +45,7 @@ SpriteAtlas:
     packables:
     - {fileID: 2800000, guid: 6fad8817d7c87024caa8ed037c5cb542, type: 3}
     - {fileID: 2800000, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
-    totalSpriteSurfaceArea: 38433
+    totalSpriteSurfaceArea: 42417
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -80,13 +80,28 @@ SpriteAtlas:
   - {fileID: -5420423781029102671, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: 4950449540763887015, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -2393667503641123379, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -5945819079364228662, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: 4362832218789270078, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -693688856175324543, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -6258888450522828385, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: 4969146071044560717, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -1884467581679157430, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: 432445449837504039, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: 455510877760026281, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: 108211990640761949, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: 1419842341598831452, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: 8536228697356894772, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -3114563261544262968, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -7188352329532566718, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -4971237471142606068, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -5115940464447924649, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: 6516659369319148515, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: 4320292718149942618, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -4289070911088323292, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: 7564411269876115583, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -3689710719424141536, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -8973594785637115466, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -2340290470968190073, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: 8574161683599010399, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -8850067798136526029, guid: 6fad8817d7c87024caa8ed037c5cb542, type: 3}
   - {fileID: 2165151032917842225, guid: 6fad8817d7c87024caa8ed037c5cb542, type: 3}
@@ -196,13 +211,28 @@ SpriteAtlas:
   - sprite_sheet2_15
   - empty
   - bed
+  - sprite_sheet2_41
+  - sprite_sheet2_40
+  - sprite_sheet2_43
+  - sprite_sheet2_42
   - sprite_sheet2_34
+  - sprite_sheet2_45
   - sprite_sheet2_35
+  - sprite_sheet2_44
   - sprite_sheet2_36
+  - sprite_sheet2_47
+  - sprite_sheet2_37
+  - sprite_sheet2_46
   - sprite_sheet2_30
+  - sprite_sheet2_49
   - sprite_sheet2_31
+  - sprite_sheet2_48
   - sprite_sheet2_32
   - sprite_sheet2_33
+  - sprite_sheet2_38
+  - sprite_sheet2_39
+  - sprite_sheet2_50
+  - sprite_sheet2_51
   - healthPotion
   - Zombie
   - GoUp

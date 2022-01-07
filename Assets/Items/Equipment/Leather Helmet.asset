@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1575d5d9c49b749b2e2a54eb2da84b, type: 3}
+  m_Name: Leather Helmet
+  m_EditorClassIdentifier: 
+  category: 2
+  name: Leather Helmet
+  icon: {fileID: 1073155413824920918, guid: b8a5580238c1d67409dca79ba5f369b8, type: 3}
+  description: A helmet made of durable leather.
+  isEquipped: 0
+  equipType: 1

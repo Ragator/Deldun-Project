@@ -7,11 +7,20 @@ using TMPro;
 public class InventorySlot : UIButton
 {
     [SerializeField] private TextMeshProUGUI amountText;
+    [SerializeField] private Image equippedIcon;
 
     public Inventory MyInventory { get; set; }
+    public InventoryUI MyInventoryUI { get; set; }
+    public EquipmentManager MyEquipmentManager { get; set; }
     public Image ItemIcon;
 
     public Item Item { get; set; }
+
+    protected override void Start()
+    {
+        base.Start();
+        Item.MyInventorySlot = this;
+    }
 
     protected override void ButtonPressed()
     {
@@ -19,10 +28,30 @@ public class InventorySlot : UIButton
         {
             MyInventory.ConsumeItem(Item);
         }
+        else if (Item is Equipment)
+        {
+            Item.Use();
+        }
     }
 
     public virtual void UpdateAmount(int newAmount)
     {
         amountText.text = newAmount.ToString();
+    }
+
+    public void MouseEnter()
+    {
+        MyInventoryUI.UpdateTextBoxes(Item);
+    }
+
+    public void EquipItem()
+    {
+        equippedIcon.enabled = true;
+        MyEquipmentManager.Equip((Equipment)Item);
+    }
+
+    public void UnequipItem()
+    {
+        equippedIcon.enabled = false;
     }
 }

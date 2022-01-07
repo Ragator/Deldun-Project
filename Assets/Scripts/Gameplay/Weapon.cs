@@ -131,7 +131,7 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(DeldunProject.Tags.enemy))
+        if (collision.gameObject.CompareTag(DeldunProject.Tags.enemy) && collision.isTrigger)
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(weaponDamage);
 

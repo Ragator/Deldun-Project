@@ -8,10 +8,10 @@ public class Door : Interactable
     [SerializeField] private Sprite openSprite;
     [SerializeField] private AudioClip closedSound;
     [SerializeField] private AudioClip openingSound;
+    [SerializeField] private BoxCollider2D stopCollider;
 
     private Inventory myInventory;
     private SpriteRenderer mySprite;
-    private BoxCollider2D stopCollider;
     private AudioSource myAudioSource;
 
     protected override void Start()
@@ -19,7 +19,6 @@ public class Door : Interactable
         base.Start();
         myInventory = GameObject.FindWithTag(DeldunProject.Tags.inventory).GetComponent<Inventory>();
         mySprite = GetComponent<SpriteRenderer>();
-        stopCollider = GetComponent<BoxCollider2D>();
         myAudioSource = GetComponent<AudioSource>();
     }
 

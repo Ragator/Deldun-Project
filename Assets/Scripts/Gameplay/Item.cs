@@ -9,6 +9,8 @@ public class Item : ScriptableObject
     [SerializeField] private Sprite icon = null;
     [SerializeField, TextArea(10, 20)] private string description = "This is a new item";
 
+    public InventorySlot MyInventorySlot { get; set; }
+
     public string GetName()
     {
         return name;
