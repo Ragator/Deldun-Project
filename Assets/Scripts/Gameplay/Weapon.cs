@@ -18,20 +18,21 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Image radialSprite;
     [SerializeField] private AudioClip slashSound;
     [SerializeField] private int attackStaminaCost = 15;
+    [SerializeField] private DamageType attackType;
 
+    private PlayerStats myPlayerStats;
     private AudioSource myAudioSource;
     private float rotation;
     private Vector3 mouseWorldPosition;
     public bool canRotate = true;
     private CapsuleCollider2D damageCollider;
-    private GameManager myGameManager;
     private float attackAngle;
 
     private void Start()
     {
         damageCollider = GetComponent<CapsuleCollider2D>();
         myAudioSource = GetComponent<AudioSource>();
-        myGameManager = GameObject.FindWithTag(DeldunProject.Tags.gameManager).GetComponent<GameManager>();
+        myPlayerStats = GameObject.FindWithTag(DeldunProject.Tags.player).GetComponent<PlayerStats>();
     }
 
     private void Update()
@@ -63,11 +64,11 @@ public class Weapon : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject() && canRotate)
         {
-            if (myGameManager.CanAffordStaminaCost(attackStaminaCost))
+            if (myPlayerStats.GetStamina() >= attackStaminaCost)
             {
                 canRotate = false;
                 radialSprite.enabled = true;
-                myGameManager.StopStaminaRegeneration();
+                myPlayerStats.StopStaminaRegeneration();
             }
         }
 
@@ -108,7 +109,7 @@ public class Weapon : MonoBehaviour
             damageCollider.enabled = true;
             myAudioSource.PlayOneShot(slashSound, 0.05f);
             float timeout = 0;
-            myGameManager.ReduceStamina(attackStaminaCost);
+            myPlayerStats.ReduceStamina(attackStaminaCost);
 
             while (Mathf.Abs(Quaternion.Angle(transform.rotation, Quaternion.Euler(0, 0, slashRotation - 90))) > 1f)
             {
@@ -125,21 +126,21 @@ public class Weapon : MonoBehaviour
         }
 
         canRotate = true;
-        myGameManager.StartStaminaRegeneration();
+        myPlayerStats.StartStaminaRegeneration();
         damageCollider.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(DeldunProject.Tags.enemy) && collision.isTrigger)
+        if (collision.gameObject.CompareTag(DeldunProject.Tags.enemyHitbox))
         {
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(weaponDamage);
+            EnemyStats enemy = (EnemyStats)collision.GetComponent<CharacterHitbox>().myCharacterStats;
 
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position).normalized * weaponKnockbackStrength);
+            enemy.TakeDamage(weaponDamage, attackType);
+
+            enemy.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position).normalized * weaponKnockbackStrength);
 
             player.gameObject.GetComponent<Rigidbody2D>().AddForce((player.position - collision.transform.position).normalized * knockbackToPlayerStrength);
-
-            //transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(collision.transform.position), rotationSpeed);
 
             myAudioSource.PlayOneShot(hitSound, 0.4f);
         }

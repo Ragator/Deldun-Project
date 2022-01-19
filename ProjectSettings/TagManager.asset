@@ -16,6 +16,8 @@ TagManager:
   - UI Manager
   - Shadow
   - Equipment Manager
+  - Player Hitbox
+  - Enemy Hitbox
   layers:
   - Default
   - TransparentFX

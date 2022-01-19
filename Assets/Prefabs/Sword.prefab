@@ -420,11 +420,13 @@ MonoBehaviour:
   playerSprite: {fileID: 0}
   swordSprite: {fileID: 36405134}
   weaponDamage: 2
-  weaponKnockbackStrength: 300
+  weaponKnockbackStrength: 100
   knockbackToPlayerStrength: 200
   rotationSpeed: 300
   slashSpeed: 1000
   hitSound: {fileID: 8300000, guid: e12c376352662ad40bdf0735ed54b12e, type: 3}
   radialSprite: {fileID: 7312338812680487235}
   slashSound: {fileID: 8300000, guid: 35e61f5ca110a054daec63e28b7bb264, type: 3}
+  attackStaminaCost: 10
+  attackType: 0
   canRotate: 1

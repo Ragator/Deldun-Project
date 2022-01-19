@@ -16,6 +16,8 @@ public class InventorySlot : UIButton
 
     public Item Item { get; set; }
 
+    private EquipmentSlot equippedSlot;
+
     protected override void Start()
     {
         base.Start();
@@ -47,11 +49,12 @@ public class InventorySlot : UIButton
     public void EquipItem()
     {
         equippedIcon.enabled = true;
-        MyEquipmentManager.Equip((Equipment)Item);
+        equippedSlot = MyEquipmentManager.Equip((Equipment)Item);
     }
 
     public void UnequipItem()
     {
         equippedIcon.enabled = false;
+        equippedSlot.UnequipItem();
     }
 }

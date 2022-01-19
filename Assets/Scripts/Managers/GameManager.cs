@@ -7,30 +7,24 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-
     public bool isInputEnabled = true;
-
-    [SerializeField] private Slider playerHealthBar;
-    [SerializeField] private int playerMaxHealth = 500;
-
-    [SerializeField] private Slider playerSanityBar;
-    [SerializeField] private int playerMaxSanity = 200;
-
-    [SerializeField] private Slider playerStaminaBar;
-    [SerializeField] private int playerMaxStamina = 100;
-    [SerializeField] private float staminaRegenerationRate = 1f;
+    public bool isPlayerInputEnabled = true;
 
     [SerializeField] private GameObject UICanvas;
     [SerializeField] private Texture2D customCursor;
     [SerializeField] private TextMeshProUGUI currencyCounter;
     [SerializeField] private LevelLoader myLevelLoader;
 
-    private int playerHealth;
-    private int playerSanity;
-    private int playerStamina;
-    private bool staminaRegenerationActive = true;
+    public PlayerStats myPlayerStats;
+
+    public Slider healthBar;
+    public Slider sanityBar;
+    public Slider staminaBar;
+
     private int currency;
+
+    #region Singleton Pattern
+    public static GameManager instance;
 
     private void Awake()
     {
@@ -44,51 +38,23 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    #endregion
 
     private void Start()
     {
-        playerHealth = playerMaxHealth;
-        playerHealthBar.maxValue = playerMaxHealth;
-
-        playerSanity = playerMaxSanity;
-        playerSanityBar.maxValue = playerMaxSanity;
-
-        playerStamina = playerMaxStamina;
-        playerStaminaBar.maxValue = playerMaxStamina;
-
-        UpdateHealthbar();
-        UpdateSanityBar();
-        UpdateStaminaBar();
-
         Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-    }
 
-    public void PlayerTakeDamage(int damage)
-    {
-        playerHealth -= damage;
-
-        UpdateHealthbar();
-
-        if (playerHealth <= 0)
+        if (SceneManager.GetActiveScene().name == "Menu")
         {
-            PlayerDeath();
-            return;
+            isPlayerInputEnabled = false;
         }
     }
 
-    private void UpdateHealthbar()
-    {
-        playerHealthBar.value = playerHealth;
-    }
-
-    private void PlayerDeath()
+    public void PlayerDeath()
     {
         myLevelLoader.LoadTargetScene(SceneManager.GetActiveScene().name);
-
-        playerHealth = playerMaxHealth;
-        UpdateHealthbar();
     }
 
     public void HideUIElements()
@@ -127,60 +93,17 @@ public class GameManager : MonoBehaviour
         currencyCounter.SetText("{0}", currency);
     }
 
-    public bool CanAffordStaminaCost(int staminaCost)
-    {
-        return (playerStamina - staminaCost) >= 0;
-    }
-
-    public void ReduceStamina(int staminaCost)
-    {
-        playerStamina -= staminaCost;
-        UpdateStaminaBar();
-    }
-
-    public void StopStaminaRegeneration()
-    {
-        staminaRegenerationActive = false;
-        StopCoroutine("RegenerateStamina");
-    }
-
-    public void StartStaminaRegeneration()
-    {
-        if (!staminaRegenerationActive)
-        {
-            StartCoroutine("RegenerateStamina");
-        }
-    }
-
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        StartStaminaRegeneration();
-    }
+        myPlayerStats.StartStaminaRegeneration();
 
-    private void UpdateStaminaBar()
-    {
-        playerStaminaBar.value = playerStamina;
-    }
-
-    private IEnumerator RegenerateStamina()
-    {
-        staminaRegenerationActive = true;
-
-        yield return new WaitForSeconds(1f);
-
-        while (playerStamina < playerMaxStamina)
+        if (scene.name == "Menu")
         {
-            playerStamina++;
-            UpdateStaminaBar();
-
-            yield return new WaitForSeconds(0.03f / staminaRegenerationRate);
+            isPlayerInputEnabled = false;
         }
-
-        staminaRegenerationActive = false;
-    }
-
-    private void UpdateSanityBar()
-    {
-        playerSanityBar.value = playerSanity;
+        else
+        {
+            isPlayerInputEnabled = true;
+        }
     }
 }

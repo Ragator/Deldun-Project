@@ -13,14 +13,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float knockbackStrength = 400f;
     [SerializeField] private float selfKnockbackStrength = 400f;
     [SerializeField] private int maxHealth = 100;
-    [SerializeField] private Slider healthBar;
+    //[SerializeField] private Slider healthBar;
     [SerializeField] private int damage = 40;
     [SerializeField] private int currencyValue = 5;
 
     [SerializeField] private GameObject canvas;
     [SerializeField] private Animator myAnimator;
 
-    private int currentHealth;
+    [SerializeField] private EnemyAttack[] attacks;
+    [SerializeField] private float attackCooldown;
+    [SerializeField] private float attackReach;
 
     private Path path;
     private int currentWaypoint = 0;
@@ -33,7 +35,9 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D myRigidbody;
 
     private bool isChasing = false;
+    private bool isAttacking = false;
 
+    private bool canMove = true;
 
     private void Start()
     {
@@ -45,11 +49,6 @@ public class Enemy : MonoBehaviour
         //playerRigidbody = player.GetComponent<Rigidbody2D>();
 
         InvokeRepeating("UpdatePath", 0f, 0.2f);
-
-        // Stats
-        currentHealth = maxHealth;
-        healthBar.maxValue = maxHealth;
-        UpdateHealthBar(currentHealth);
 
         if (Random.value < 0.5f)
         {
@@ -108,7 +107,10 @@ public class Enemy : MonoBehaviour
         Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - myRigidbody.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
-        myRigidbody.AddForce(force);
+        if (canMove)
+        {
+            myRigidbody.AddForce(force);
+        }
 
         float distance = Vector2.Distance(myRigidbody.position, path.vectorPath[currentWaypoint]);
 
@@ -142,6 +144,33 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (isChasing && !isAttacking)
+        {
+            foreach(EnemyAttack attack in attacks)
+            {
+                if (Vector2.Distance(player.transform.position, transform.position) < attack.range * attackReach)
+                {
+                    myAnimator.SetTrigger(attack.animationTrigger);
+                    isAttacking = true;
+                    StartCoroutine(AttackCooldown());
+                    break;
+                }
+            }
+        }
+    }
+
+    IEnumerator AttackCooldown()
+    {
+        yield return new WaitForSeconds(0.1f);
+        canMove = false;
+        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length);
+        canMove = true;
+        yield return new WaitForSeconds(attackCooldown);
+        isAttacking = false;
+    }
+
     private void FaceLeft()
     {
         transform.localScale = new Vector2(-1f, 1f);
@@ -154,49 +183,9 @@ public class Enemy : MonoBehaviour
         canvas.transform.localScale = new Vector2(1f, 1f);
     }
 
-    private void OnTriggerEnter2D(UnityEngine.Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag(DeldunProject.Tags.player) && collision.isTrigger)
-        {
-            collision.gameObject.GetComponent<Player>().TakeDamage(damage);
-
-            // Knockback the player
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position).normalized * knockbackStrength);
-
-            // Knockback away from the player
-            myRigidbody.AddForce((transform.position - collision.transform.position).normalized * selfKnockbackStrength);
-        }
-    }
-
-    public void TakeDamage(int damage)
-    {
-        canvas.SetActive(true);
-        currentHealth -= damage;
-
-        //Debug.Log("The enemy took " + damage + " damage!");
-        //Debug.Log("Its health is now at " + currentHealth);
-
-        if (currentHealth <= 0)
-        {
-            Die();
-            return;
-        }
-
-        UpdateHealthBar(currentHealth);
-        // Knockback rigidbody
-        // Knockback player rigidbody
-        // Decrement health
-        // Check health, die if <= 0
-    }
-
     private void Die()
     {
         player.GetComponent<Player>().GainCurrency(currencyValue);
         Destroy(gameObject);
-    }
-
-    private void UpdateHealthBar(float value)
-    {
-        healthBar.value = value;
     }
 }

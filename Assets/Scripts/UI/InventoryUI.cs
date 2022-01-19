@@ -40,6 +40,6 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateTextBoxes(Item item)
     {
-        itemDescription.text = item.GetDescription();
+        itemDescription.text = (item.name + "\n\n" + item.GetDescription());
     }
 }

@@ -13,6 +13,8 @@ public class EquipmentManager : MonoBehaviour
 
     EquipmentSlot[] currentEquipment = new EquipmentSlot[6];
 
+    private EquipmentSlot slotToEquipIn;
+
     private void Start()
     {
         currentEquipment[0] = weaponSlot;
@@ -23,16 +25,20 @@ public class EquipmentManager : MonoBehaviour
         currentEquipment[5] = accessorySlot3;
     }
 
-    public void Equip(Equipment newItem)
+    public EquipmentSlot Equip(Equipment newItem)
     {
         if (newItem.equipType == EquipmentType.Accessory)
         {
-            EquipInSlot(FindEmptySlot(), newItem);
+            slotToEquipIn = FindEmptySlot();
         }
         else
         {
-            EquipInSlot(currentEquipment[(int)newItem.equipType], newItem);
+            slotToEquipIn = currentEquipment[(int)newItem.equipType];
+            
         }
+
+        EquipInSlot(slotToEquipIn, newItem);
+        return slotToEquipIn;
     }
 
     private EquipmentSlot FindEmptySlot()
@@ -43,6 +49,7 @@ public class EquipmentManager : MonoBehaviour
             {
                 if (accessorySlot3.HasEquipment)
                 {
+                    accessorySlot1.EquippedItem.Use();
                     return accessorySlot1;
                 }
                 else

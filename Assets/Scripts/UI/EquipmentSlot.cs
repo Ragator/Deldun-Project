@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EquipmentSlot : UIButton
 {
     [SerializeField] Image equipmentIcon;
+    [SerializeField] InventoryUI myInventoryUI;
 
     public Equipment EquippedItem { get; set; }
     public Image EquipmentIcon { get; set; }
@@ -23,7 +24,15 @@ public class EquipmentSlot : UIButton
     {
         if (HasEquipment)
         {
-            UnequipItem();
+            EquippedItem.Use();
+        }
+    }
+
+    public void MouseEnter()
+    {
+        if (EquippedItem != null)
+        {
+            myInventoryUI.UpdateTextBoxes(EquippedItem);
         }
     }
 
@@ -39,10 +48,8 @@ public class EquipmentSlot : UIButton
         defaultIcon.enabled = false;
     }
 
-    private void UnequipItem()
+    public void UnequipItem()
     {
-        EquippedItem.Use();
-
         HasEquipment = false;
 
         equipmentIcon.sprite = null;

@@ -5,14 +5,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Equipment", menuName = "Inventory/Equipment")]
 public class Equipment : Item
 {
-    public bool isEquipped = false;
+    [HideInInspector] public bool isEquipped;
     public EquipmentType equipType;
+
+    private void OnEnable()
+    {
+        isEquipped = false;
+    }
 
     public override void Use()
     {
         if (isEquipped)
         {
-            Debug.Log("Unequipped");
             Unequip();
         }
         else

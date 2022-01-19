@@ -20,6 +20,8 @@ namespace DeldunProject
         public const string buttonPrompt = "Button Prompt";
         public const string UIManager = "UI Manager";
         public const string equipmentManager = "Equipment Manager";
+        public const string playerHitbox = "Player Hitbox";
+        public const string enemyHitbox = "Enemy Hitbox";
     }
 
     public enum ItemCategory
@@ -31,9 +33,7 @@ namespace DeldunProject
         meleeWeapon,
         rangeWeapon,
         magicWeapon,
-        earring,
-        amulet,
-        ring
+        accessory
     }
 }
 
