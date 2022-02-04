@@ -162,8 +162,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 3498475215457275635}
+  m_Children: []
   m_Father: {fileID: 3498475215787683422}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -287,7 +286,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418303583527424225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -526,7 +525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3498475215787683419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.924, y: -0.082, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1866034088}
@@ -684,11 +683,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 60
   myAnimator: {fileID: 4218898334919468302}
-  playerSprite: {fileID: 1866034089}
+  playerSprite: {fileID: 1866034087}
   myPlayerStats: {fileID: 2227639906197474846}
-  iFramesDuration: 0.5
+  iFramesDuration: 0.2
   iFramesDeltaTime: 0.05
+  isInvincible: 0
+  dashStaminaCost: 10
+  dashSpeed: 15
+  dashCooldown: 0.2
+  isChargingWeapon: 0
   hitSound: {fileID: 8300000, guid: 60a10f222389e9a4eae0b7f6ae18afcb, type: 3}
+  helmetSlot: {fileID: 1344234648299431640}
+  chestpieceSlot: {fileID: 4712650984202742040}
+  weaponSlot: {fileID: 4587170625889438640}
+  speedModifier: 1
 --- !u!114 &2227639906197474846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,6 +720,8 @@ MonoBehaviour:
   maxHealth:
     baseValue: 500
   healthBar: {fileID: 0}
+  currentHealth: 0
+  myPlayer: {fileID: 3498475215787683416}
   maxSanity:
     baseValue: 50
   maxStamina:
@@ -722,11 +732,24 @@ MonoBehaviour:
     baseValue: 0
   arcaneDamageBonus:
     baseValue: 0
+  currentSanity: 0
+  currentStamina: 0
   staminaRegenerationRate: 0.5
   staminaRegenerationCooldown: 0.5
-  iFramesDuration: 0.5
-  iFramesDeltaTime: 0.05
-  playerSprite: {fileID: 1866034087}
+  playerLevel: 1
+  levelUpCost: 0
+  longevity:
+    baseValue: 10
+  fitness:
+    baseValue: 5
+  willpower:
+    baseValue: 5
+  brawn:
+    baseValue: 10
+  skill:
+    baseValue: 10
+  vision:
+    baseValue: 5
 --- !u!1 &4054606290402712585
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,7 +859,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4466851994417438093}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1044,88 +1067,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &2148764172747792365
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 4587170625889438640}
-    m_Modifications:
-    - target: {fileID: 3268739275144892700, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3268739275144892700, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3268739275144892702, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3268739275144892702, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3268739275144892702, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3268739275144892702, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3268739275144892702, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3268739275144892702, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3268739275144892702, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3268739275144892702, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3268739275144892702, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3268739275144892702, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3268739275144892702, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3268739275144892703, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: m_Name
-      value: Wooden Sword
-      objectReference: {fileID: 0}
-    - target: {fileID: 4283939598330094748, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 3498475215787683422}
-    - target: {fileID: 4283939598330094748, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: playerSprite
-      value: 
-      objectReference: {fileID: 1866034088}
-    - target: {fileID: 4283939598330094748, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-      propertyPath: weaponDamage
-      value: 20
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 23606be9912c1ae449872081b9264c96, type: 3}
---- !u!4 &3498475215457275635 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3268739275144892702, guid: 23606be9912c1ae449872081b9264c96, type: 3}
-  m_PrefabInstance: {fileID: 2148764172747792365}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4324373847231887011
 PrefabInstance:
   m_ObjectHideFlags: 0

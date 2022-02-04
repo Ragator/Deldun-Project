@@ -284,7 +284,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3268739275144892703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 0.247, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 36405134}
@@ -416,10 +416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c17509f5b7c035e48bd5ec80d26c709e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  playerSprite: {fileID: 0}
   swordSprite: {fileID: 36405134}
-  weaponDamage: 2
+  weaponDamage: 20
   weaponKnockbackStrength: 100
   knockbackToPlayerStrength: 200
   rotationSpeed: 300
@@ -430,3 +428,6 @@ MonoBehaviour:
   attackStaminaCost: 10
   attackType: 0
   canRotate: 1
+  brawnScaling: 30
+  skillScaling: 30
+  visionScaling: 30

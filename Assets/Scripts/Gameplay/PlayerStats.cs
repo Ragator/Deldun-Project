@@ -2,72 +2,129 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class PlayerStats : CharacterStats
 {
-    private readonly Dictionary<DamageType, Stat> damageBonuses = new Dictionary<DamageType, Stat>();
-
-    [SerializeField] private Stat maxSanity;
-    [SerializeField] private Stat maxStamina;
-
+    private GameManager myGameManager;
+    [SerializeField] private Player myPlayer;
     private Slider sanityBar;
     private Slider staminaBar;
+
+    public delegate void OnStatModified();
+    public OnStatModified onStatModifiedCallback;
+
+    private readonly Dictionary<DamageType, Stat> damageBonuses = new Dictionary<DamageType, Stat>();
+
+    public Stat maxSanity;
+    public Stat maxStamina;
 
     [SerializeField] private Stat physicalDamageBonus;
     [SerializeField] private Stat bloodDamageBonus;
     [SerializeField] private Stat arcaneDamageBonus;
 
-    private GameManager myGameManager;
-
-    private int currentSanity;
-    private int currentStamina;
-
-    private bool isInvincible = false;
-
-    private bool staminaRegenerationActive = true;
+    public int currentSanity;
+    public int currentStamina;
 
     [SerializeField] private float staminaRegenerationRate = 1f;
     [SerializeField] private float staminaRegenerationCooldown = 0.5f;
 
-    [SerializeField] private float iFramesDuration = 1.5f;
-    [SerializeField] private float iFramesDeltaTime = .15f;
+    private readonly Dictionary<EquipmentModifier, Stat> modifiableStats = new Dictionary<EquipmentModifier, Stat>();
 
-    [SerializeField] private GameObject playerSprite;
+    public int playerLevel;
 
-    private void Awake()
+    public long levelUpCost;
+
+    [Header ("Player Levels")]
+    public Stat longevity;
+    public Stat fitness;
+    public Stat willpower;
+    public Stat brawn;
+    public Stat skill;
+    public Stat vision;
+
+    protected override void Awake()
     {
+        base.Awake();
+        
         myGameManager = GameObject.FindWithTag(DeldunProject.Tags.gameManager).GetComponent<GameManager>();
         myGameManager.myPlayerStats = this;
 
         healthBar = myGameManager.healthBar;
         sanityBar = myGameManager.sanityBar;
         staminaBar = myGameManager.staminaBar;
+
+        InitStatBar(maxHealth, ref currentHealth, healthBar);
+        InitStatBar(maxSanity, ref currentSanity, sanityBar);
+        InitStatBar(maxStamina, ref currentStamina, staminaBar);
+
+        physicalDamageBonus.Value = physicalDamageBonus.GetBaseValue();
+        bloodDamageBonus.Value = bloodDamageBonus.GetBaseValue();
+        arcaneDamageBonus.Value = arcaneDamageBonus.GetBaseValue();
+
+        longevity.Value = longevity.GetBaseValue();
+        fitness.Value = fitness.GetBaseValue();
+        willpower.Value = willpower.GetBaseValue();
+        brawn.Value = brawn.GetBaseValue();
+        skill.Value = skill.GetBaseValue();
+        vision.Value = vision.GetBaseValue();
+
+        damageBonuses.Add(DamageType.Physical, physicalDamageBonus);
+        damageBonuses.Add(DamageType.Blood, bloodDamageBonus);
+        damageBonuses.Add(DamageType.Arcane, arcaneDamageBonus);
+
+        modifiableStats.Add(EquipmentModifier.physicalResistance, physicalResistance);
+        modifiableStats.Add(EquipmentModifier.bloodResistance, bloodResistance);
+        modifiableStats.Add(EquipmentModifier.arcaneResistance, arcaneResistance);
+        modifiableStats.Add(EquipmentModifier.physicalDamageBonus, physicalDamageBonus);
+        modifiableStats.Add(EquipmentModifier.bloodDamageBonus, bloodDamageBonus);
+        modifiableStats.Add(EquipmentModifier.arcaneDamageBonus, arcaneDamageBonus);
+        modifiableStats.Add(EquipmentModifier.maxHealth, maxHealth);
+        modifiableStats.Add(EquipmentModifier.maxSanity, maxSanity);
+        modifiableStats.Add(EquipmentModifier.maxStamina, maxStamina);
+
+        modifiableStats.Add(EquipmentModifier.longevity, longevity);
+        modifiableStats.Add(EquipmentModifier.fitness, fitness);
+        modifiableStats.Add(EquipmentModifier.willpower, willpower);
+        modifiableStats.Add(EquipmentModifier.brawn, brawn);
+        modifiableStats.Add(EquipmentModifier.skill, skill);
+        modifiableStats.Add(EquipmentModifier.vision, vision);
     }
 
     protected override void Start()
     {
         base.Start();
-
-        InitStatBar(maxSanity, ref currentSanity, sanityBar);
-
-        InitStatBar(maxStamina, ref currentStamina, staminaBar);
-
-        damageBonuses.Add(DamageType.Physical, physicalDamageBonus);
-        damageBonuses.Add(DamageType.Blood, bloodDamageBonus);
-        damageBonuses.Add(DamageType.Arcane, arcaneDamageBonus);
     }
 
     public override void TakeDamage(int damage, DamageType type)
     {
-        if (isInvincible)
+        if (myPlayer.isInvincible)
         {
             return;
         }
 
         base.TakeDamage(damage, type);
 
-        StartCoroutine(ActivateIFrames());
+        if (!myPlayer.isInvincible)
+        {
+            myPlayer.BecomeInvincible();
+        }
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+
+        myPlayer.isInvincible = true;
+
+        myGameManager.PlayerDeath();
+
+        currentHealth = maxHealth.Value;
+        healthBar.value = currentHealth;
+    }
+
+    public int GetStamina()
+    {
+        return currentStamina;
     }
 
     public void ReduceStamina(int staminaCost)
@@ -76,42 +133,8 @@ public class PlayerStats : CharacterStats
         staminaBar.value = currentStamina;
     }
 
-    private IEnumerator ActivateIFrames()
-    {
-        isInvincible = true;
-
-        for (float i = 0; i < iFramesDuration; i += iFramesDeltaTime)
-        {
-            playerSprite.SetActive(!playerSprite.activeSelf);
-            yield return new WaitForSeconds(iFramesDeltaTime);
-        }
-
-        playerSprite.SetActive(true);
-        isInvincible = false;
-    }
-
-    protected override void Die()
-    {
-        base.Die();
-
-        isInvincible = true;
-
-        myGameManager.PlayerDeath();
-
-        currentHealth = maxHealth.Value;
-        healthBar.value = currentHealth;
-        isInvincible = false;
-    }
-
-    public int GetStamina()
-    {
-        return currentStamina;
-    }
-
     private IEnumerator RegenerateStamina()
     {
-        staminaRegenerationActive = true;
-
         yield return new WaitForSeconds(staminaRegenerationCooldown);
 
         while (currentStamina < maxStamina.Value)
@@ -121,21 +144,80 @@ public class PlayerStats : CharacterStats
 
             yield return new WaitForSeconds(0.03f / staminaRegenerationRate);
         }
-
-        staminaRegenerationActive = false;
     }
 
     public void StopStaminaRegeneration()
     {
-        staminaRegenerationActive = false;
         StopCoroutine("RegenerateStamina");
     }
 
     public void StartStaminaRegeneration()
     {
-        if (!staminaRegenerationActive)
+        StopCoroutine("RegenerateStamina");
+        StartCoroutine("RegenerateStamina");
+    }
+
+    public void LevelUp(EquipmentModifier statToLevelUp)
+    {
+        modifiableStats[statToLevelUp].SetBaseValue(modifiableStats[statToLevelUp].GetBaseValue() + 1);
+    }
+
+    public void AddEquipment(Equipment equipmentToAdd)
+    {
+        bool statGotModified = false;
+        foreach (StatModifier modifier in equipmentToAdd.modifiers)
         {
-            StartCoroutine("RegenerateStamina");
+            modifiableStats[modifier.modifierName].AddModifier(modifier.modifierValue, modifier.modifierType);
+            HandleStatModification(modifier.modifierName);
+            statGotModified = true;
         }
+
+        if (statGotModified)
+        {
+            onStatModifiedCallback.Invoke();
+        }
+    }
+
+    public void RemoveEquipment(Equipment equipmentToRemove)
+    {
+        bool statGotModified = false;
+        foreach (StatModifier modifier in equipmentToRemove.modifiers)
+        {
+            modifiableStats[modifier.modifierName].RemoveModifier(modifier.modifierValue, modifier.modifierType);         
+            HandleStatModification(modifier.modifierName);
+            statGotModified = true;
+        }
+
+        if (statGotModified)
+        {
+            onStatModifiedCallback.Invoke();
+        }
+    }
+
+    private void HandleStatModification(EquipmentModifier statModified)
+    {
+        switch (statModified)
+        {
+            case EquipmentModifier.maxHealth:
+                UpdateStatBarMax(maxHealth, currentHealth, healthBar);
+                break;
+            case EquipmentModifier.maxSanity:
+                UpdateStatBarMax(maxSanity, currentSanity, sanityBar);
+                break;
+            case EquipmentModifier.maxStamina:
+                UpdateStatBarMax(maxStamina, currentStamina, staminaBar);
+                break;
+        }
+    }
+
+    private void UpdateStatBarMax(Stat stat, int currentStat, Slider resourceBar)
+    {
+        if (currentStat > stat.Value)
+        {
+            currentStat = stat.Value;
+            resourceBar.value = currentStat;
+        }
+
+        resourceBar.maxValue = stat.Value;
     }
 }

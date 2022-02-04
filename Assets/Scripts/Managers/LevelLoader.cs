@@ -54,6 +54,11 @@ public class LevelLoader : MonoBehaviour
 
         crossfade.SetTrigger("Start");
 
+        if (targetDoor == null)
+        {
+            targetDoor = GameObject.FindWithTag(DeldunProject.Tags.defaultDoor).name;
+        }
+
         if (targetDoor != null)
         {
             MovePlayer(targetDoor);

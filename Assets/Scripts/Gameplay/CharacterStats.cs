@@ -10,27 +10,35 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] private AudioClip takeDamageSound;
     [SerializeField] private AudioSource myAudioSource;
 
-    [SerializeField] private Stat physicalResistance;
-    [SerializeField] private Stat bloodResistance;
-    [SerializeField] private Stat arcaneResistance;
+    public Stat physicalResistance;
+    public Stat bloodResistance;
+    public Stat arcaneResistance;
 
-    [SerializeField] protected Stat maxHealth;
+    public Stat maxHealth;
     [SerializeField] protected Slider healthBar;
 
-    protected int currentHealth;
+    public int currentHealth;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
-        InitStatBar(maxHealth, ref currentHealth, healthBar);
+        physicalResistance.Value = physicalResistance.GetBaseValue();
+        bloodResistance.Value = bloodResistance.GetBaseValue();
+        arcaneResistance.Value = arcaneResistance.GetBaseValue();
 
         resistances.Add(DamageType.Physical, physicalResistance);
         resistances.Add(DamageType.Blood, bloodResistance);
         resistances.Add(DamageType.Arcane, arcaneResistance);
     }
 
+    protected virtual void Start()
+    {
+
+    }
+
     public virtual void TakeDamage(int damage, DamageType type)
     {
-        int damageReduction = Mathf.CeilToInt(damage * (resistances[type].Value / 100));
+        int damageReduction = Mathf.CeilToInt(damage * ((float)resistances[type].Value / 100));
+
         damage -= damageReduction;
 
         if (damage < 1)
@@ -42,17 +50,16 @@ public class CharacterStats : MonoBehaviour
 
         healthBar.value = currentHealth;
 
+        myAudioSource.PlayOneShot(takeDamageSound);
+
         if (currentHealth <= 0)
         {
             Die();
         }
-
-        myAudioSource.PlayOneShot(takeDamageSound);
     }
 
     protected virtual void Die()
     {
-
     }
 
     protected void InitStatBar(Stat stat, ref int currentStat, Slider resourceBar)

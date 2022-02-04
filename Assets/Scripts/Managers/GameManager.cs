@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelLoader myLevelLoader;
 
     public PlayerStats myPlayerStats;
+    public Player myPlayer;
 
     public Slider healthBar;
     public Slider sanityBar;
@@ -96,6 +97,8 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         myPlayerStats.StartStaminaRegeneration();
+        myPlayer.speedModifier = 1f;
+        myPlayer.isInvincible = false;
 
         if (scene.name == "Menu")
         {

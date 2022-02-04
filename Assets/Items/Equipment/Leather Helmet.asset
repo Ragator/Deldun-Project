@@ -15,6 +15,19 @@ MonoBehaviour:
   category: 2
   name: Leather Helmet
   icon: {fileID: 1073155413824920918, guid: b8a5580238c1d67409dca79ba5f369b8, type: 3}
-  description: A helmet made of durable leather.
-  isEquipped: 0
+  description: 'A helmet made of durable leather.
+
+
+    Increases Maximum Health
+    by 200 and Physical Defense by 10.'
+  isEquipped: 1
   equipType: 1
+  equippedSprite: {fileID: -882974264871361652, guid: b8a5580238c1d67409dca79ba5f369b8, type: 3}
+  weapon: {fileID: 0}
+  modifiers:
+  - modifierName: 0
+    modifierValue: 10
+    modifierType: 0
+  - modifierName: 6
+    modifierValue: 200
+    modifierType: 0

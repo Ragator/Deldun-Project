@@ -11,9 +11,14 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField] EquipmentSlot accessorySlot2;
     [SerializeField] EquipmentSlot accessorySlot3;
 
-    EquipmentSlot[] currentEquipment = new EquipmentSlot[6];
+    readonly EquipmentSlot[] currentEquipment = new EquipmentSlot[6];
 
     private EquipmentSlot slotToEquipIn;
+
+    private PlayerStats myPlayerStats;
+    private Player myPlayer;
+
+    private GameObject equippedWeapon;
 
     private void Start()
     {
@@ -23,6 +28,9 @@ public class EquipmentManager : MonoBehaviour
         currentEquipment[3] = accessorySlot1;
         currentEquipment[4] = accessorySlot2;
         currentEquipment[5] = accessorySlot3;
+
+        myPlayerStats = GameObject.FindWithTag(DeldunProject.Tags.player).GetComponent<PlayerStats>();
+        myPlayer = myPlayerStats.gameObject.GetComponent<Player>();
     }
 
     public EquipmentSlot Equip(Equipment newItem)
@@ -34,7 +42,6 @@ public class EquipmentManager : MonoBehaviour
         else
         {
             slotToEquipIn = currentEquipment[(int)newItem.equipType];
-            
         }
 
         EquipInSlot(slotToEquipIn, newItem);
@@ -70,6 +77,48 @@ public class EquipmentManager : MonoBehaviour
 
     private void EquipInSlot(EquipmentSlot slot, Equipment item)
     {
+        if (slot.HasEquipment)
+        {
+            slot.EquippedItem.Use();
+        }
+
         slot.EquipItem(item);
+        myPlayerStats.AddEquipment(item);
+
+        if (slot == headSlot)
+        {
+            myPlayer.helmetSlot.sprite = item.equippedSprite;
+            myPlayer.helmetSlot.enabled = true;
+        }
+        else if (slot == chestSlot)
+        {
+            myPlayer.chestpieceSlot.sprite = item.equippedSprite;
+            myPlayer.helmetSlot.enabled = true;
+        }
+        else if (slot == weaponSlot)
+        {
+            equippedWeapon = Instantiate(item.weapon);
+            equippedWeapon.transform.parent = myPlayer.weaponSlot;
+            equippedWeapon.transform.localPosition = Vector2.zero;
+        }
+    }
+
+    public void UnequipItem(EquipmentSlot slot, Equipment item)
+    {
+        myPlayerStats.RemoveEquipment(item);
+
+        if (slot == headSlot)
+        {
+            myPlayer.helmetSlot.enabled = false;
+        }
+        else if (slot == chestSlot)
+        {
+            myPlayer.helmetSlot.enabled = false;
+        }
+        else if (slot == weaponSlot)
+        {
+            Destroy(equippedWeapon);
+            equippedWeapon = null;
+        }
     }
 }

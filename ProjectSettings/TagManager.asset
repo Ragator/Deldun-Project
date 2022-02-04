@@ -18,6 +18,7 @@ TagManager:
   - Equipment Manager
   - Player Hitbox
   - Enemy Hitbox
+  - Default Door
   layers:
   - Default
   - TransparentFX

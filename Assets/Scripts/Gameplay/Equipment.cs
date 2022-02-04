@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,11 @@ public class Equipment : Item
 {
     [HideInInspector] public bool isEquipped;
     public EquipmentType equipType;
+
+    public Sprite equippedSprite;
+    public GameObject weapon;
+
+    public List<StatModifier> modifiers;
 
     private void OnEnable()
     {
@@ -39,3 +45,29 @@ public class Equipment : Item
 }
 
 public enum EquipmentType { Weapon, Head, Chest, Accessory }
+
+public enum EquipmentModifier { 
+    physicalResistance, 
+    bloodResistance, 
+    arcaneResistance, 
+    physicalDamageBonus, 
+    bloodDamageBonus, 
+    arcaneDamageBonus, 
+    maxHealth,
+    maxSanity,
+    maxStamina,
+    longevity,
+    fitness,
+    willpower,
+    brawn,
+    skill,
+    vision
+}
+
+[Serializable]
+public class StatModifier
+{
+    public EquipmentModifier modifierName;
+    public int modifierValue;
+    public ModifierType modifierType;
+}

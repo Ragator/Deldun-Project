@@ -8,7 +8,8 @@ public enum Action
     up,
     down,
     interact,
-    inventory
+    inventory,
+    dash
 }
 
 public class Keybinds : MonoBehaviour
@@ -18,7 +19,7 @@ public class Keybinds : MonoBehaviour
     public delegate void OnKeybindChanged();
     public OnKeybindChanged onKeybindChangedCallback;
 
-    public void Start()
+    public void Awake()
     {
         keybinds.Add(Action.right, KeyCode.D);
         keybinds.Add(Action.left, KeyCode.Q);
@@ -26,6 +27,7 @@ public class Keybinds : MonoBehaviour
         keybinds.Add(Action.down, KeyCode.S);
         keybinds.Add(Action.interact, KeyCode.E);
         keybinds.Add(Action.inventory, KeyCode.Tab);
+        keybinds.Add(Action.dash, KeyCode.Space);
 
         if (onKeybindChangedCallback != null)
         {

@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-    [SerializeField] private Transform playerSprite;
     [SerializeField] private Transform swordSprite;
     [SerializeField] private int weaponDamage = 20;
     [SerializeField] private float weaponKnockbackStrength = 500f;
@@ -21,6 +19,10 @@ public class Weapon : MonoBehaviour
     [SerializeField] private DamageType attackType;
 
     private PlayerStats myPlayerStats;
+    private Player myPlayer;
+    private Transform playerTransform;
+    private Transform playerSpriteTransform;
+
     private AudioSource myAudioSource;
     private float rotation;
     private Vector3 mouseWorldPosition;
@@ -28,11 +30,19 @@ public class Weapon : MonoBehaviour
     private CapsuleCollider2D damageCollider;
     private float attackAngle;
 
+    [Header("Scaling")]
+    public WeaponScaling brawnScaling;
+    public WeaponScaling skillScaling;
+    public WeaponScaling visionScaling;
+
     private void Start()
     {
         damageCollider = GetComponent<CapsuleCollider2D>();
         myAudioSource = GetComponent<AudioSource>();
         myPlayerStats = GameObject.FindWithTag(DeldunProject.Tags.player).GetComponent<PlayerStats>();
+        myPlayer = myPlayerStats.gameObject.GetComponent<Player>();
+        playerTransform = myPlayerStats.gameObject.transform;
+        playerSpriteTransform = myPlayer.playerSprite.transform;
     }
 
     private void Update()
@@ -53,12 +63,12 @@ public class Weapon : MonoBehaviour
         
         if (transform.localRotation.eulerAngles.z > 180)
         {
-            playerSprite.localScale = Vector2.one;
+            playerSpriteTransform.localScale = Vector2.one;
             swordSprite.localScale = Vector2.one;
         }
         else if (transform.localRotation.eulerAngles.z < 180)
         {
-            playerSprite.localScale = new Vector2(-1, 1);
+            playerSpriteTransform.localScale = new Vector2(-1, 1);
             swordSprite.localScale = new Vector2(-1, 1);
         }
 
@@ -69,6 +79,8 @@ public class Weapon : MonoBehaviour
                 canRotate = false;
                 radialSprite.enabled = true;
                 myPlayerStats.StopStaminaRegeneration();
+                myPlayer.speedModifier = 0.5f;
+                myPlayer.isChargingWeapon = true;
             }
         }
 
@@ -79,8 +91,9 @@ public class Weapon : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) && !canRotate)
         {
-            StartCoroutine(Slash(rotation));
             radialSprite.enabled = false;
+            myPlayer.speedModifier = 0;
+            StartCoroutine(Slash(rotation));
         }
     }
 
@@ -127,6 +140,8 @@ public class Weapon : MonoBehaviour
 
         canRotate = true;
         myPlayerStats.StartStaminaRegeneration();
+        myPlayer.speedModifier = 1f;
+        myPlayer.isChargingWeapon = false;
         damageCollider.enabled = false;
     }
 
@@ -140,9 +155,20 @@ public class Weapon : MonoBehaviour
 
             enemy.gameObject.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position).normalized * weaponKnockbackStrength);
 
-            player.gameObject.GetComponent<Rigidbody2D>().AddForce((player.position - collision.transform.position).normalized * knockbackToPlayerStrength);
+            playerTransform.gameObject.GetComponent<Rigidbody2D>().AddForce((playerTransform.position - collision.transform.position).normalized * knockbackToPlayerStrength);
 
             myAudioSource.PlayOneShot(hitSound, 0.4f);
         }
     }
+}
+
+public enum WeaponScaling
+{
+    S = 30,
+    A = 25,
+    B = 20,
+    C = 15,
+    D = 10,
+    E = 5,
+    F = 0
 }

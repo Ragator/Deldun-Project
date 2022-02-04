@@ -56,5 +56,6 @@ public class InventorySlot : UIButton
     {
         equippedIcon.enabled = false;
         equippedSlot.UnequipItem();
+        MyEquipmentManager.UnequipItem(equippedSlot, (Equipment)Item);
     }
 }

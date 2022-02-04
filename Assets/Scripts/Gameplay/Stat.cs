@@ -28,7 +28,7 @@ public class Stat
         Value = baseValue;
         additiveModifiers.ForEach(x => Value += x);
         int tempValue = Value;
-        multiplicativeModifiers.ForEach(x => Value += (tempValue * (x / 100)));
+        multiplicativeModifiers.ForEach(x => Value += Mathf.CeilToInt(tempValue * ((float)x / 100)));
     }
 
     public void AddModifier(int modifier, ModifierType type)

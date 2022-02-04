@@ -22,6 +22,7 @@ namespace DeldunProject
         public const string equipmentManager = "Equipment Manager";
         public const string playerHitbox = "Player Hitbox";
         public const string enemyHitbox = "Enemy Hitbox";
+        public const string defaultDoor = "Default Door";
     }
 
     public enum ItemCategory
@@ -39,7 +40,7 @@ namespace DeldunProject
 
 public class DataManager : MonoBehaviour
 {
-    private string playerSaveFileName = "/playerInfo.dat";
+/*    private string playerSaveFileName = "/playerInfo.dat";
 
     public void SaveGame()
     {
@@ -50,7 +51,7 @@ public class DataManager : MonoBehaviour
     public void LoadGame()
     {
 
-    }
+    }*/
 }
 
 [Serializable]

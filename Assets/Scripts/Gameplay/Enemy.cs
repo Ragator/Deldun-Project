@@ -15,8 +15,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     //[SerializeField] private Slider healthBar;
     [SerializeField] private int damage = 40;
-    [SerializeField] private int currencyValue = 5;
-
+    
     [SerializeField] private GameObject canvas;
     [SerializeField] private Animator myAnimator;
 
@@ -38,6 +37,7 @@ public class Enemy : MonoBehaviour
     private bool isAttacking = false;
 
     private bool canMove = true;
+    private bool canTurn = true;
 
     private void Start()
     {
@@ -120,26 +120,29 @@ public class Enemy : MonoBehaviour
         }
 
         // Swap sprite direction
-        if (isChasing)
+        if (canTurn)
         {
-            if (player.transform.position.x <= transform.position.x)
+            if (isChasing)
             {
-                FaceLeft();
+                if (player.transform.position.x <= transform.position.x)
+                {
+                    FaceLeft();
+                }
+                else
+                {
+                    FaceRight();
+                }
             }
             else
             {
-                FaceRight();
-            }
-        }
-        else
-        {
-            if (myRigidbody.velocity.x <= 0.01f)
-            {
-                FaceLeft();
-            }
-            else if (myRigidbody.velocity.x >= -0.01f)
-            {
-                FaceRight();
+                if (myRigidbody.velocity.x <= 0.01f)
+                {
+                    FaceLeft();
+                }
+                else if (myRigidbody.velocity.x >= -0.01f)
+                {
+                    FaceRight();
+                }
             }
         }
     }
@@ -163,11 +166,16 @@ public class Enemy : MonoBehaviour
 
     IEnumerator AttackCooldown()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.01f);
         canMove = false;
+        canTurn = false;
         yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length);
+
+        canTurn = true;
         canMove = true;
+
         yield return new WaitForSeconds(attackCooldown);
+
         isAttacking = false;
     }
 
@@ -181,11 +189,5 @@ public class Enemy : MonoBehaviour
     {
         transform.localScale = new Vector2(1f, 1f);
         canvas.transform.localScale = new Vector2(1f, 1f);
-    }
-
-    private void Die()
-    {
-        player.GetComponent<Player>().GainCurrency(currencyValue);
-        Destroy(gameObject);
     }
 }

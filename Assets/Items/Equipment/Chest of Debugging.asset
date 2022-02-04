@@ -12,9 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1575d5d9c49b749b2e2a54eb2da84b, type: 3}
   m_Name: Chest of Debugging
   m_EditorClassIdentifier: 
-  category: 3
-  name: Chest of Debugging
-  icon: {fileID: -2340290470968190073, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
-  description: A weird-looking chestpiece.
+  category: 2
+  name: Leather Cuirass
+  icon: {fileID: 8089795243323674954, guid: b8a5580238c1d67409dca79ba5f369b8, type: 3}
+  description: 'A chestpiece made of durable leather.
+
+
+    Increases Physical Defense
+    by 20.'
   isEquipped: 0
-  equipType: 2
+  equipType: 1
+  equippedSprite: {fileID: 2711843887237898467, guid: b8a5580238c1d67409dca79ba5f369b8, type: 3}
+  weapon: {fileID: 0}
+  modifiers:
+  - modifierName: 0
+    modifierValue: 20
+    modifierType: 0

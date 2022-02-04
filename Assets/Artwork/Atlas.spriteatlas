@@ -45,7 +45,7 @@ SpriteAtlas:
     packables:
     - {fileID: 2800000, guid: 6fad8817d7c87024caa8ed037c5cb542, type: 3}
     - {fileID: 2800000, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
-    totalSpriteSurfaceArea: 42417
+    totalSpriteSurfaceArea: 47025
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -66,18 +66,28 @@ SpriteAtlas:
   - {fileID: -7963808432663989080, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -8603399289394761274, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -4487978936524715958, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -5110941291072958204, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: 7111182709157555893, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -6667716475043361764, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -7742058609566857847, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -5107424770537343358, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -6167174616785581309, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: 7914514686896373840, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -688993793950695139, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -7718731471423770482, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -6766304559629540050, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: 2223267286777508025, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -3755994134628545052, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -3343842824075458152, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -1945412876098625011, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: 7711062110059258592, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -5249939138559150679, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: 6612139860239531491, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -4629167530251973597, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -8345522253971189880, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: 5382133515568457788, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -5420423781029102671, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: 6624900499249249873, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: 4950449540763887015, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -2393667503641123379, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -5945819079364228662, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
@@ -100,6 +110,14 @@ SpriteAtlas:
   - {fileID: -4289070911088323292, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: 7564411269876115583, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -3689710719424141536, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -2987384786232079479, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -3182681152128765238, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: 1984596794070017361, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -2403929124806877651, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -8555034818006952699, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -8459745166228629859, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: -3812739073694149347, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
+  - {fileID: 2042670765336195581, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -8973594785637115466, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: -2340290470968190073, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
   - {fileID: 8574161683599010399, guid: 27e804c5b33b0f9419f51a209928f146, type: 3}
@@ -197,18 +215,28 @@ SpriteAtlas:
   - sprite_sheet2_24
   - bedSheets
   - sprite_sheet2_18
+  - sprite_sheet2_69
   - sprite_sheet2_21
   - sprite_sheet2_19
+  - sprite_sheet2_68
   - sprite_sheet2_12
+  - sprite_sheet2_63
   - sprite_sheet2_13
+  - sprite_sheet2_62
   - sprite_sheet2_10
+  - sprite_sheet2_61
   - sprite_sheet2_29
   - sprite_sheet2_11
+  - sprite_sheet2_60
   - sprite_sheet2_28
   - sprite_sheet2_16
+  - sprite_sheet2_67
   - sprite_sheet2_17
+  - sprite_sheet2_66
   - sprite_sheet2_14
+  - sprite_sheet2_65
   - sprite_sheet2_15
+  - sprite_sheet2_64
   - empty
   - bed
   - sprite_sheet2_41
@@ -231,6 +259,14 @@ SpriteAtlas:
   - sprite_sheet2_33
   - sprite_sheet2_38
   - sprite_sheet2_39
+  - sprite_sheet2_58
+  - sprite_sheet2_59
+  - sprite_sheet2_56
+  - sprite_sheet2_57
+  - sprite_sheet2_54
+  - sprite_sheet2_55
+  - sprite_sheet2_52
+  - sprite_sheet2_53
   - sprite_sheet2_50
   - sprite_sheet2_51
   - healthPotion
